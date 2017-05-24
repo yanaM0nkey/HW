@@ -7,7 +7,7 @@ public class Dz1 {
     public static void main(String[] args) {
         
         System.out.println("Программа 1:");
-        String str = "Солнышко";
+        String str = "Apple";
         System.out.println("Количество символов в строке - " + str.length());
         String str1 = str.substring(0, str.length()/2);
         String str2 = str.substring(str.length()/2);
