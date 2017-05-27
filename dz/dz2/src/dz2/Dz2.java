@@ -10,5 +10,12 @@ package dz2;
  * @author UX501
  */
 public class Dz2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
     
 }
