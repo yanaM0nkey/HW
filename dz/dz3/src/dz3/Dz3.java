@@ -21,10 +21,12 @@ public class Dz3 {
              bubbleSort(array);
              break;
            case 3:
-               sort(array);
-               break; 
+             sort(array);
+             break; 
            default:
-               System.out.println("Сортировка не была выбрана!");
+             System.out.println("Сортировка не была выбрана!");
+             break; //но вроде как и без break работает
+               
        }
        printOut(array);
        
