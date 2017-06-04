@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         
         Bankomat bankomat  = new Bankomat(0,0,0);
-        addMoney(bankomat,7,2,1);
+        addMoney(bankomat,10,10,10);
         //addMoney(bankomat,10,2,3);
         System.out.println("20:" + bankomat.getTwenties() + " 50:" + bankomat.getFifties() + " 100:" + bankomat.getHundreds());
         System.out.println("Do you want to get money? (yes/no)");
@@ -74,11 +74,17 @@ public class Main {
                 }       
             }
         }
+        //System.out.println("20:" + tw + " 50:" + f + " 100:" + h);
+        
         if(h > bankomat.getHundreds()){
             h-=bankomat.getHundreds();
             int f2 = f+2*h;
-            if(f2 > bankomat.getFifties())
+            if(f2 > bankomat.getFifties()){
+                h-= bankomat.getFifties()/2;
+                f+= 2*(bankomat.getFifties()/2);
                 tw+=5*h;
+                h=0;
+            }
             else
                 f+=2*h;
         }
