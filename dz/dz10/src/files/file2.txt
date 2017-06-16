@@ -1,0 +1,3 @@
+﻿&Popov&26&true
+&Sydorov&35&false
+&kozlov&56&false
