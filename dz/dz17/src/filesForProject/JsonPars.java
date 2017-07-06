@@ -108,9 +108,11 @@ public class JsonPars {
                 String nameEmployee = (String)itemObj.get("name");
                 String degree = (String)itemObj.get("degree");
                 String dateOfBirth = (String)itemObj.get("dateOfBirth");
+                
                 SimpleDateFormat format = new SimpleDateFormat();
                 format.applyPattern("yyyy-mm-dd");
                 Date docDate= format.parse(dateOfBirth);
+                
                 long yearExperience = (long)itemObj.get("yearEperience");
                 try{
                     long rate = (long)itemObj.get("rate");
