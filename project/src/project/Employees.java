@@ -1,8 +1,12 @@
 package project;
 
 import com.google.gson.annotations.SerializedName;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Employees {
@@ -83,8 +87,9 @@ public class Employees {
 
     @Override
     public String toString() {
+        SimpleDateFormat formatForDate = new SimpleDateFormat("yyyy-MM-dd");
         return "\n"+"Employees{" + "id=" + id + ", name=" + name + ", degree=" + 
-                degree + ", dateOfBirth=" + dateOfBirth + ", yearExperience=" + 
+                degree + ", dateOfBirth=" + formatForDate.format(dateOfBirth)+ ", yearExperience=" + 
                 yearExperience + ", rate=" + rate + ", emails=" + emails + 
                 ", isVisible=" + isVisible + '}';
     }

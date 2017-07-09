@@ -79,9 +79,9 @@ public class DownloaderThread extends Thread{
         download(typeOfFile);
         synchronized(parserThread){
             //пробуждаем поток парсера
-            System.out.println("пробуждаем другой поток");
+            //System.out.println("пробуждаем другой поток");
             parserThread.notifyAll();
-            System.out.println("завершаем работу потока скачивания"); 
+            //System.out.println("завершаем работу потока скачивания"); 
         }  
     }   
 }

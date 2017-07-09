@@ -3,9 +3,12 @@ package project;
 //этот поток ждет пока скачается файл затем парсит его
 
 import java.io.FileReader;
-import java.sql.Date;
+import java.text.ParseException;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.json.simple.JSONArray;
@@ -34,39 +37,38 @@ public class ParserThread extends Thread{
         
         synchronized(this){
             //спим, ждем вызова c другого потока
-            System.out.println("спим");
+            //System.out.println("спим");
             try {
                 wait();
             } catch (InterruptedException ex) {
                 System.out.println("!!!Ошибка" + ex.toString()); 
             }
         }
-        System.out.println("парсим файл");
+        //System.out.println("парсим файл");
         //Root root = new Root();
         if(typeOfFile.equals("xml"))
             root = parseXml("salary." + typeOfFile);
         else 
             root = parseJson("salary." + typeOfFile);
-        System.out.println("завершаем работу потока парсинга");
+        //System.out.println("завершаем работу потока парсинга");
     }
     
     //парсим JSON
     public Root parseJson(String path){
         JSONParser parser = new JSONParser();
-        Root root = new Root();
-        
+        Root root = Root.getInstance();
         try{
             JSONObject rootObj = (JSONObject)parser.parse(new FileReader(path));
             String name = (String)rootObj.get("name");
-            System.out.println("name = " + name);
+            //System.out.println("name = " + name);
             root.setName(name);
             
             String location = (String)rootObj.get("location");
-            System.out.println("location = " + location);
+            //System.out.println("location = " + location);
             root.setLocation(location);
             
             long baseSalary = (long)rootObj.get("baseSalary");
-            System.out.println("baseSalary = " + baseSalary);
+            //System.out.println("baseSalary = " + baseSalary);
             root.setBaseSalary((int)baseSalary);
             
             ArrayList<Employees> employeesList = new ArrayList<>();
@@ -80,8 +82,8 @@ public class ParserThread extends Thread{
                 String dateOfBirth = (String)itemObj.get("dateOfBirth");
                 
                 SimpleDateFormat format = new SimpleDateFormat();
-                format.applyPattern("yyyy-mm-dd");
-                java.util.Date docDate= format.parse(dateOfBirth);
+                format.applyPattern("yyyy-M-dd");
+                Date docDate = format.parse(dateOfBirth);
                 
                 long yearExperience = (long)itemObj.get("yearEperience");
                 try{
@@ -107,7 +109,7 @@ public class ParserThread extends Thread{
                 employees.setEmails(emailsList);
                 employees.setIsVisible(isVisible);
                 employeesList.add(employees); 
-                System.out.println(employees.toString());
+                //System.out.println(employees.toString());
             }
             root.setEmployees(employeesList);
         } catch(Exception e){
@@ -119,7 +121,7 @@ public class ParserThread extends Thread{
     //парсим XML
     public Root parseXml(String path){
         Document dom = null;
-        Root mainRoot = new Root();
+        Root mainRoot = Root.getInstance();
         try{
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();//за нас делает new
             DocumentBuilder db = dbf.newDocumentBuilder();
@@ -129,36 +131,36 @@ public class ParserThread extends Thread{
         }
         
         Element root = dom.getDocumentElement();
-        System.out.println("tag 1 = " + root.getTagName());
+        //System.out.println("tag 1 = " + root.getTagName());
 
         NodeList nameNodeList = root.getElementsByTagName("name");
         Node nameNode = nameNodeList.item(0);
-        System.out.println("tag 2 = " + nameNode.getNodeName());
+        //System.out.println("tag 2 = " + nameNode.getNodeName());
 
         String name = nameNode.getFirstChild().getNodeValue();
-        System.out.println("name = " + name);
+        //System.out.println("name = " + name);
         mainRoot.setName(name);
 
         NodeList locationNodeList = root.getElementsByTagName("location");
         Node locationNode = locationNodeList.item(0);
-        System.out.println("tag 3 = " + locationNode.getNodeName());
+        //System.out.println("tag 3 = " + locationNode.getNodeName());
 
         String location = locationNode.getFirstChild().getNodeValue();
-        System.out.println("location = " + location);
+        //System.out.println("location = " + location);
         mainRoot.setLocation(location);
 
         NodeList baseSalaryNodeList = root.getElementsByTagName("baseSalary");
         Node baseSalaryNode = baseSalaryNodeList.item(0);
-        System.out.println("tag 4 = " + baseSalaryNode.getNodeName());
+        //System.out.println("tag 4 = " + baseSalaryNode.getNodeName());
 
         String baseSalary = baseSalaryNode.getFirstChild().getNodeValue();
-        System.out.println("baseSalary = " + baseSalary);
+        //System.out.println("baseSalary = " + baseSalary);
         mainRoot.setBaseSalary(Integer.valueOf(baseSalary));
 
         NodeList employeesNodeList = root.getElementsByTagName("employees");
 
         Node employeesNode = employeesNodeList.item(0);
-        System.out.println("tag 5 = " + employeesNode.getNodeName());
+        //System.out.println("tag 5 = " + employeesNode.getNodeName());
 
         //NodeList elementsNodeList = employeesNode.getChildNodes();
 
@@ -174,23 +176,23 @@ public class ParserThread extends Thread{
 
             Employees el = new Employees();
 
-            System.out.println("======================================");
+            //System.out.println("======================================");
 
             Element element = (Element) node;
-            System.out.println("tag = " + node.getNodeName());
+            //System.out.println("tag = " + node.getNodeName());
 
             //id
             String id = element.getElementsByTagName("id").item(0).getTextContent();
-            System.out.println("id : " + id);
+            //System.out.println("id : " + id);
 
             el.setId(Integer.valueOf(id));
 
             // name
             NodeList nameElemlist = element.getElementsByTagName("name");
-            System.out.println("length: " + nameElemlist.getLength());
+            //System.out.println("length: " + nameElemlist.getLength());
             Element nameElement = (Element) nameElemlist.item(0);
             String nameEmployees = nameElement.getFirstChild().getNodeValue();
-            System.out.println("name : " + nameEmployees);
+            //System.out.println("name : " + nameEmployees);
 
             el.setName(nameEmployees);
 
@@ -198,7 +200,7 @@ public class ParserThread extends Thread{
             NodeList degreeElemlist = element.getElementsByTagName("degree");
             Element degreeElement = (Element) degreeElemlist.item(0);
             String degreeEmployees = degreeElement.getFirstChild().getNodeValue();
-            System.out.println("degree : " + degreeEmployees);
+            //System.out.println("degree : " + degreeEmployees);
 
             el.setDegree(degreeEmployees);
 
@@ -206,19 +208,28 @@ public class ParserThread extends Thread{
             NodeList dateOfBirthElemlist = element.getElementsByTagName("dateOfBirth");
             Element dateOfBirthElement = (Element)dateOfBirthElemlist.item(0);
             String dateOfBirthEmployees = dateOfBirthElement.getFirstChild().getNodeValue();
-            System.out.println("dateOfBirth : " + dateOfBirthEmployees);
+            //System.out.println("dateOfBirth : " + dateOfBirthEmployees);
+            
+            SimpleDateFormat format = new SimpleDateFormat();
+            format.applyPattern("yyyy-M-dd");
+            Date docDate = null;
+            try {
+                docDate= format.parse(dateOfBirthEmployees);
+            } catch (ParseException ex) {
+                Logger.getLogger(ParserThread.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-            el.setDateOfBirth(Date.valueOf(dateOfBirthEmployees));
+            el.setDateOfBirth(docDate);
 
             //yearExperience
             String yearExperience = element.getElementsByTagName("yearEperience").item(0).getTextContent();
-            System.out.println("yearExperience : " + yearExperience);
+            //System.out.println("yearExperience : " + yearExperience);
 
             el.setYearExperience(Integer.valueOf(yearExperience));
 
             //rate
             String rate = element.getElementsByTagName("rate").item(0).getTextContent();
-            System.out.println("rate : " + rate);
+            //System.out.println("rate : " + rate);
 
             el.setRate(Double.valueOf(rate));
 
@@ -226,19 +237,19 @@ public class ParserThread extends Thread{
             NodeList emailsElemlist = element.getElementsByTagName("emails");
             ArrayList<String> emailsList = new ArrayList<>();
             int h = emailsElemlist.getLength();
-            System.out.println("length emails: " + h);
+            //System.out.println("length emails: " + h);
             for(int k = 0; k < emailsElemlist.getLength(); k++){
                 Element emailsElement = (Element)emailsElemlist.item(k);
                 String email = emailsElement.getFirstChild().getNodeValue();
-                System.out.println("email: " + email);
+                //System.out.println("email: " + email);
                 emailsList.add(email);
             }
-            System.out.println(emailsList.toString());
+            //System.out.println(emailsList.toString());
             el.setEmails(emailsList);
 
             //visible
             String isVisible = element.getElementsByTagName("visible").item(0).getTextContent();
-            System.out.println("isVisible : " + isVisible);
+            //System.out.println("isVisible : " + isVisible);
 
             el.setIsVisible(Boolean.valueOf(isVisible));
 
@@ -247,7 +258,7 @@ public class ParserThread extends Thread{
         mainRoot.setEmployees(list);
 
         for(Employees e: list) {
-         System.out.println(e.toString());
+         //System.out.println(e.toString());
         }
         return mainRoot;
     }
