@@ -27,10 +27,6 @@ public class ParserThread extends Thread{
     public void setTypeOfFile(String typeOfFile) {
         this.typeOfFile = typeOfFile;
     }
-
-    public Root getRoot() {
-        return root;
-    }
     
     @Override
     public void run() {

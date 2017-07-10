@@ -18,7 +18,7 @@ public class Main {
         DownloaderThread downloaderThread = new DownloaderThread();
         ParserThread parserThread = new ParserThread();
         downloaderThread.setParserThread(parserThread);
-        Root root =  Root.getInstance();
+        
   
         //цикл будет работать пока пользователь не выберет 1/2(XML/JSON)
         while(isOK){
@@ -57,9 +57,9 @@ public class Main {
         } catch (InterruptedException ex) {
             System.out.println("!!!Ошибка " + ex.getMessage());
         }
-        root = parserThread.getRoot();
         //System.out.println("-------------------------------------------------");
         
+        Root root =  Root.getInstance();
         HashMap<Integer, Double> listOfSalary = root.getListOfSalary();
         
         isOK = true;
@@ -92,9 +92,14 @@ public class Main {
                                     System.out.println("введите id сотрудника");
                                     Scanner in2 = new Scanner(System.in);
                                     int answ2 = in.nextInt();
-                                    System.out.println(root.find(answ).toString());  
+                                    try{
+                                        System.out.println(root.find(answ2).toString());
+                                        isOk = false;
+                                    }catch(NullPointerException ex){
+                                        System.out.println("!!!Неправильный ввод ответа, попробуйте еще раз1");
+                                    }  
                                 }catch(InputMismatchException e){    
-                                    System.out.println("!!!Неправильный ввод ответа, попробуйте еще раз"); 
+                                    System.out.println("!!!Неправильный ввод ответа, попробуйте еще раз2"); 
                                 }
                             }
                             
