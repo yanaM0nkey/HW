@@ -1,4 +1,4 @@
-package project;
+package data;
 
 import com.google.gson.annotations.SerializedName;
 import java.text.ParseException;

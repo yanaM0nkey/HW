@@ -1,7 +1,9 @@
-package project;
+package threads;
 
 //этот поток ждет пока скачается файл затем парсит его
 
+import data.Employees;
+import data.Root;
 import java.io.FileReader;
 import java.text.ParseException;
 import java.util.Date;

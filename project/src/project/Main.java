@@ -1,5 +1,8 @@
 package project;
 
+import threads.DownloaderThread;
+import threads.ParserThread;
+import data.Root;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
@@ -39,12 +42,12 @@ public class Main {
                         isOK = false;
                         break;
                     default:
-                        System.out.println("!!!Неправильный ввод ответа, попробуйте еще раз");
+                        System.out.println(error());
                         break;
                 }
             }
             catch(InputMismatchException e){
-                System.out.println("!!!Неправильный ввод ответа, попробуйте еще раз"); 
+                System.out.println(error()); 
             }
         }
         
@@ -91,33 +94,35 @@ public class Main {
                                 try{
                                     System.out.println("введите id сотрудника");
                                     Scanner in2 = new Scanner(System.in);
-                                    int answ2 = in.nextInt();
+                                    int answ2 = in2.nextInt();
                                     try{
                                         System.out.println(root.find(answ2).toString());
                                         isOk = false;
                                     }catch(NullPointerException ex){
-                                        System.out.println("!!!Неправильный ввод ответа, попробуйте еще раз1");
+                                        System.out.println(error());
                                     }  
                                 }catch(InputMismatchException e){    
-                                    System.out.println("!!!Неправильный ввод ответа, попробуйте еще раз2"); 
+                                    System.out.println(error()); 
                                 }
                             }
-                            
                             break;
                         case 4:
+                            //тут должен быть вывод списка с сортировкой
                             break;
                         case 5:
                             isOK = false;
                             break;
                         default:
-                            System.out.println("!!!Неправильный ввод ответа, попробуйте еще раз");
+                            System.out.println(error());
                             break;
                     }
             }
             catch(InputMismatchException e){
-                System.out.println("!!!Неправильный ввод ответа, попробуйте еще раз"); 
+                System.out.println(error()); 
             }
-        }
-         
+        }   
+    }
+    public static String error(){
+        return "!!!Неправильный ввод, попробуйте еще раз";
     }
 }

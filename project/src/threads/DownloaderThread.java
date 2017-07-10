@@ -1,7 +1,8 @@
-package project;
+package threads;
 
 //этот поток скачивает JSON затем ждет пока его распарсит другой поток
 
+import threads.ParserThread;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
