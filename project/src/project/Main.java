@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class Main {
@@ -87,6 +85,18 @@ public class Main {
                             }
                             break;
                         case 3:
+                            //вспомогательная переменная для работы цикла
+                            boolean isOk = true;
+                            while(isOk){
+                                try{
+                                    System.out.println("введите id сотрудника");
+                                    Scanner in2 = new Scanner(System.in);
+                                    int answ2 = in.nextInt();
+                                    System.out.println(root.find(answ).toString());  
+                                }catch(InputMismatchException e){    
+                                    System.out.println("!!!Неправильный ввод ответа, попробуйте еще раз"); 
+                                }
+                            }
                             
                             break;
                         case 4:

@@ -10,7 +10,7 @@ public class Root {
     private int baseSalary;
     private ArrayList<Employees> employees;
     
-    //реализация Singletone
+    //реализация Singleton
     private static Root root;
 
     private Root() {
@@ -20,8 +20,7 @@ public class Root {
         if(root == null){
             root = new Root();
         }
-        return root;
-        
+        return root; 
     }
 
     public String getName() {
@@ -61,6 +60,7 @@ public class Root {
         return "Root{" + "name=" + name + ", location=" + location + ", baseSalary=" + baseSalary + employees.toString() + '}';
     }
     
+    //метод для получения списка зарплат
     public HashMap<Integer, Double> getListOfSalary(){
         ListOfSalary listOfSalary = new ListOfSalary();
         HashMap<Integer, Double> list = new HashMap<>();
@@ -71,6 +71,17 @@ public class Root {
         return list;
     }
     
+    //метод для поиска сотрудника по id
+    public Employees find(int id){
+        for(Employees empl: employees){
+            if(id == empl.getId())
+                return empl;
+        }
+        return null;
+    }
+    
+    //внутренний класс со списком зарплат
+    //создан для выполнения всех пунктов итогового задания
     class ListOfSalary implements Salary{
         private HashMap<Integer, Double> listOfSalary;
 
