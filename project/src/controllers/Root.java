@@ -1,7 +1,11 @@
-package data;
+package controllers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import models.Employees;
+import view.Listener;
 
 
 public class Root {
@@ -9,6 +13,7 @@ public class Root {
     private String location;
     private int baseSalary;
     private ArrayList<Employees> employees;
+    private Listener ui = null;
     
     //реализация Singleton
     private static Root root;
@@ -23,6 +28,11 @@ public class Root {
         return root; 
     }
 
+    public void setUi(Listener ui) {
+        this.ui = ui;
+    }
+
+    
     public String getName() {
         return name;
     }
@@ -80,6 +90,45 @@ public class Root {
         return null;
     }
     
+    //метод для выбора след. операции
+    public int start(){
+        System.out.println("введите 1, чтобы вывести всю информацию\n" + 
+                    "введите 2, чтобы вывести зарплату на экран\n" + 
+                    "введите 3, чтобы найти сотрудника по id\n" + 
+                    "введите 4, чтобы отсортировать по уровню зарплаты\n" + 
+                    "введите 5 для завершения работы\n");
+        Scanner in = new Scanner(System.in);
+        int answ = in.nextInt();
+        return answ;
+    }
+    
+    //метод вывода всех сотрудников
+    public void print(){
+        ui.onPrint(root);
+    }
+    
+    //метод вывода зарплаты
+    public void printSalary(){
+        ui.onPrintSalary(root);
+    }
+    
+    //метод поиска сотрудника(консоль)
+    public void printEmployee(){
+        try{
+            System.out.println("введите id сотрудника");
+            Scanner in = new Scanner(System.in);
+            int answer = in.nextInt();
+            ui.onPrintEmployee(root, answer);
+        }catch(InputMismatchException e){    
+            ui.onPrintEmployee(root, -1);    
+        } 
+    }
+    
+    //метод сортировки списка сотрудников
+    public void printSort(){
+        
+    }
+    
     //внутренний класс со списком зарплат
     //создан для выполнения всех пунктов итогового задания
     class ListOfSalary implements Salary{
@@ -93,6 +142,9 @@ public class Root {
             this.listOfSalary = listOfSalary;
         }
 
+        
+        //метод из интерфейса Salary, подразумевается что в разных компаниях
+        //зарплату считают по разному
         @Override
         public double getSalary(Employees employee) {
            return baseSalary*employee.getRate()+baseSalary*employee.getYearExperience()/100; 

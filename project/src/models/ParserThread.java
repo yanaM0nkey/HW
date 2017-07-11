@@ -1,9 +1,10 @@
-package threads;
+package models;
 
 //этот поток ждет пока скачается файл затем парсит его
 
-import data.Employees;
-import data.Root;
+
+import models.Employees;
+import controllers.Root;
 import java.io.FileReader;
 import java.text.ParseException;
 import java.util.Date;

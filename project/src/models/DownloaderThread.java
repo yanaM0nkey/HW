@@ -1,8 +1,8 @@
-package threads;
+package models;
 
 //этот поток скачивает JSON затем ждет пока его распарсит другой поток
 
-import threads.ParserThread;
+import models.ParserThread;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -15,6 +15,8 @@ public class DownloaderThread extends Thread{
     
     private ParserThread parserThread;
     private String typeOfFile;
+    public static final String LINKXML = "http://kiparo.ru/t/salary.xml";
+    public static final String LINKJSON = "http://kiparo.ru/t/salary.json";
 
     public void setTypeOfFile(String typeOfFile) {
         this.typeOfFile = typeOfFile;
@@ -28,9 +30,9 @@ public class DownloaderThread extends Thread{
     public void download(String typeOfFile){
         final String LINK;
         if(typeOfFile.equals("xml"))
-            LINK = "http://kiparo.ru/t/salary.xml";
+            LINK = LINKXML;
         else
-            LINK = "http://kiparo.ru/t/salary.json";
+            LINK = LINKJSON;
         
         InputStream inputStream1 = null;
         FileOutputStream outputStream1 = null;
