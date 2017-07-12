@@ -1,12 +1,15 @@
 package view;
 
+import controllers.Main;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
-import java.util.Scanner;
 import models.DownloaderThread;
 import models.ParserThread;
 import controllers.Root;
+import java.text.SimpleDateFormat;
+import java.util.TreeSet;
+import models.Employees;
 
 
 public class UI implements Listener{
@@ -14,48 +17,45 @@ public class UI implements Listener{
     public static final String TYPEXML = "xml";
     public static final String TYPEJSON = "json";
     
-    public void startUi(int answer){
-        //переменная для работы с консолью
-        boolean isOK = true;
+    public void startUi(){
         
         DownloaderThread downloaderThread = new DownloaderThread();
         ParserThread parserThread = new ParserThread();
         downloaderThread.setParserThread(parserThread);
-        
-        //цикл будет работать пока пользователь не выберет 1/2(XML/JSON)
+        Main main = new Main();
+        //грубо говоря вызов консоли
+        int answer = main.startInMain();//возвратит ответ выбора типа файла
+        boolean isOK = true;
         while(isOK){
-            try{
-                switch(answer){
-                    case 1:
-                        downloaderThread.setTypeOfFile(TYPEXML);
-                        parserThread.setTypeOfFile(TYPEXML);
-                        isOK = false;
-                        break;
-                    case 2:
-                        downloaderThread.setTypeOfFile(TYPEJSON);
-                        parserThread.setTypeOfFile(TYPEJSON);
-                        isOK = false;
-                        break;
-                    default:
-                        System.out.println(error());
-                        break;
-                }
-            }
-            catch(InputMismatchException e){
-                System.out.println(error()); 
+            switch(answer){
+                case 1:
+                    downloaderThread.setTypeOfFile(TYPEXML);
+                    parserThread.setTypeOfFile(TYPEXML);
+                    isOK = false;
+                    break;
+                case 2:
+                    downloaderThread.setTypeOfFile(TYPEJSON);
+                    parserThread.setTypeOfFile(TYPEJSON);
+                    isOK = false;
+                    break;
+                default:
+                    System.out.println(error());
+                    answer = main.startInMain();
+                    break;
             }
         }
         
+        //далее запустим потоки скачки и парсинга
         downloaderThread.start();
         parserThread.start();
         
+        //ждем завершения потоков
         try {
             parserThread.join();
             downloaderThread.join();
         } catch (InterruptedException ex) {
             System.out.println("!!!Ошибка " + ex.getMessage());
         }
-        //System.out.println("-------------------------------------------------");
         
         Root root =  Root.getInstance();
         root.setUi(this);
@@ -63,18 +63,23 @@ public class UI implements Listener{
         isOK = true;
         while(isOK){
             try{
+                //вызываем метод start который возратит ответ с консоли о дальнейших действиях
                 int answ = root.start();
                 switch(answ){
                         case 1:
+                            //вывод всей информации
                             root.print();
                             break;
                         case 2:
+                            //вывод зарплаты
                             root.printSalary();
                             break;
                         case 3:
+                            //поиск сотрудника
                             root.printEmployee();
                             break;
                         case 4:
+                            //сортированный список сотрудников по ФИО
                             root.printSort();
                             break;
                         case 5:
@@ -118,28 +123,30 @@ public class UI implements Listener{
     }
 
     @Override
-    public void onPrintEmployee(Root root, int answer) {
-            //вспомогательная переменная для работы цикла
-            boolean isOk = true;
-            while(isOk){
-                if(answer != -1){
-                    try{
-                        System.out.println(root.find(answer).toString());
-                        isOk = false;
-                    }catch(NullPointerException ex){
-                        System.out.println(error());
-                    } 
-                }
-                else{
-                    System.out.println(error());
-                    root.printEmployee();
-            }
+    public void onPrintEmployee(Root root, int answer) {   
+        if(answer != -1){
+            try{
+                System.out.println(root.find(answer).toString());
+            }catch(NullPointerException ex){
+                System.out.println(error());
+                root.printEmployee();
+            } 
+        }
+        else{
+            System.out.println(error());
+            root.printEmployee();
         }
     }
-     
-
+    
     @Override
-    public void onPrintSort() {
+    public void onPrintSort(TreeSet<Employees> employees) {
+        SimpleDateFormat formatForDate = new SimpleDateFormat("yyyy-MM-dd");
+        for(Employees e : employees) {
+            System.out.println("\n"+"Employees{" + "name=" + e.getName() + ", id=" + e.getId() + ", degree=" + 
+                e.getDegree() + ", dateOfBirth=" + formatForDate.format(e.getDateOfBirth())+ ", yearExperience=" + 
+                e.getYearExperience() + ", rate=" + e.getRate() + ", emails=" + e.getEmails() + 
+                ", isVisible=" + e.isIsVisible() + '}');
+        }
         
     }
      

@@ -1,15 +1,12 @@
 package models;
 
 import com.google.gson.annotations.SerializedName;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
-public class Employees {
+public class Employees implements Comparable{
     private int id;
     private String name;
     private String degree;
@@ -92,6 +89,16 @@ public class Employees {
                 degree + ", dateOfBirth=" + formatForDate.format(dateOfBirth)+ ", yearExperience=" + 
                 yearExperience + ", rate=" + rate + ", emails=" + emails + 
                 ", isVisible=" + isVisible + '}';
+    }
+
+    @Override
+    public int compareTo(Object obj) {
+        Employees employee = (Employees) obj;
+        int result = name.compareTo(employee.name);
+        if(result != 0) {
+               return result;
+        }
+        return 0;
     }
     
     

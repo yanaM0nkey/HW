@@ -2,8 +2,6 @@ package models;
 
 //этот поток ждет пока скачается файл затем парсит его
 
-
-import models.Employees;
 import controllers.Root;
 import java.io.FileReader;
 import java.text.ParseException;
@@ -12,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.json.simple.JSONArray;
@@ -96,7 +96,14 @@ public class ParserThread extends Thread{
                 ArrayList<String> emailsList = new ArrayList<>();
                 JSONArray emailsArray = (JSONArray)itemObj.get("emails");
                 for(Object item2: emailsArray) {
-                    emailsList.add(String.valueOf(item2));
+                    Pattern p = Pattern.compile(".+\\@{1}.+\\.(com|by|ru)");
+                    String email = String.valueOf(item2);
+                    Matcher m = p.matcher(email);
+                    if(m.matches()){
+                        emailsList.add(email);
+                    } else{
+                        System.out.println("Некорректный email");
+                    }  
                 }
                 boolean isVisible = (boolean)itemObj.get("visible");
                 employees.setId((int)id);
@@ -241,7 +248,13 @@ public class ParserThread extends Thread{
                 Element emailsElement = (Element)emailsElemlist.item(k);
                 String email = emailsElement.getFirstChild().getNodeValue();
                 //System.out.println("email: " + email);
-                emailsList.add(email);
+                Pattern p = Pattern.compile(".+\\@{1}.+\\.(com|by|ru)");
+                Matcher m = p.matcher(email);
+                if(m.matches()){
+                    emailsList.add(email);
+                } else{
+                    System.out.println("Некорректный email");
+                }   
             }
             //System.out.println(emailsList.toString());
             el.setEmails(emailsList);
@@ -261,5 +274,4 @@ public class ParserThread extends Thread{
         }
         return mainRoot;
     }
-    
 }

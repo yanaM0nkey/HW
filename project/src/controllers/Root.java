@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.TreeSet;
 import models.Employees;
 import view.Listener;
 
@@ -95,7 +96,7 @@ public class Root {
         System.out.println("введите 1, чтобы вывести всю информацию\n" + 
                     "введите 2, чтобы вывести зарплату на экран\n" + 
                     "введите 3, чтобы найти сотрудника по id\n" + 
-                    "введите 4, чтобы отсортировать по уровню зарплаты\n" + 
+                    "введите 4, чтобы отсортировать по ФИО\n" + 
                     "введите 5 для завершения работы\n");
         Scanner in = new Scanner(System.in);
         int answ = in.nextInt();
@@ -126,7 +127,12 @@ public class Root {
     
     //метод сортировки списка сотрудников
     public void printSort(){
-        
+        TreeSet<Employees> employeeSort = new TreeSet<>();
+        ArrayList<Employees> employeeNotSort = root.getEmployees();
+        for(Employees empl: employeeNotSort){
+            employeeSort.add(empl);
+        }
+        ui.onPrintSort(employeeSort);
     }
     
     //внутренний класс со списком зарплат
@@ -144,7 +150,7 @@ public class Root {
 
         
         //метод из интерфейса Salary, подразумевается что в разных компаниях
-        //зарплату считают по разному
+        //зарплату считают по-разному
         @Override
         public double getSalary(Employees employee) {
            return baseSalary*employee.getRate()+baseSalary*employee.getYearExperience()/100; 
