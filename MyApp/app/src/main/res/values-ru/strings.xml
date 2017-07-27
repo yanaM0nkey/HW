@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">MyApp</string>
-    <!-- Classwork2 -->
-    <string name="classwork2_name">Имя</string>
-    <string name="classwork2_login">Войти</string>
-    <string name="classwork2_password">Пароль</string>
-</resources>
