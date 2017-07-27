@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gmail.ioanna.myandroidapp.main.MainActivity"
+    android:background="@color/mainBackground">
+
+    <Button
+        android:id="@+id/dz1Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_dz1"
+        android:layout_margin="@dimen/margin"
+        />
+
+    <Button
+        android:id="@+id/dz2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_dz2"
+        android:layout_below="@+id/classWork2Button"
+        android:layout_alignStart="@+id/dz1Button"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"/>
+
+    <Button
+        android:id="@+id/classWork2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_classwork2"
+        android:textAllCaps="false"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_alignBaseline="@+id/dz1Button"
+        android:layout_alignBottom="@+id/dz1Button"
+        android:layout_toEndOf="@+id/dz1Button"
+        />
+
+</RelativeLayout>

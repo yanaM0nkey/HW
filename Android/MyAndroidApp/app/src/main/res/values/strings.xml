@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyAndroidApp</string>
+    <!-- Classwork2 -->
+    <string name="classwork2_name">Name</string>
+    <string name="classwork2_login">Login</string>
+    <string name="classwork2_password">Password</string>
+    <!-- DZ1 -->
+    <string name="dz1_change">Change</string>
+    <!-- Main -->
+    <string name="main_dz1">DZ1</string>
+    <string name="main_dz2">DZ2</string>
+    <string name="main_classwork2">ClassWork2</string>
+</resources>
