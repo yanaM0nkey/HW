@@ -9,5 +9,11 @@
     <!-- Main -->
     <string name="main_dz1">DZ1</string>
     <string name="main_dz2">DZ2</string>
+    <string name="main_dz3">DZ3</string>
+    <string name="main_dz4">DZ4</string>
     <string name="main_classwork2">ClassWork2</string>
+    <string name="main_classwork3">ClassWork3</string>
+    <string name="main_classwork4">ClassWork4</string>
+    <!-- Classwork3 -->
+    <string name="classwork3_button">Button</string>
 </resources>

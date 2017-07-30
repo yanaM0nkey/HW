@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.gmail.ioanna.myandroidapp.R;
 import com.gmail.ioanna.myandroidapp.classwork2.Classwork2Activity;
+import com.gmail.ioanna.myandroidapp.classwork3.Classwork3Activity;
 import com.gmail.ioanna.myandroidapp.dz1.Dz1Activity;
 import com.gmail.ioanna.myandroidapp.dz2.Dz2Activity;
 
@@ -28,14 +29,14 @@ public class MainActivity extends Activity {
             }
         });
 
-        /*Button dz2Button = (Button) findViewById(R.id.dz2Button);
-        dz1Button.setOnClickListener(new View.OnClickListener() {
+        Button dz2Button = (Button) findViewById(R.id.dz2Button);
+        dz2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Dz2Activity.class);
                 startActivity(intent);
             }
-        });*/
+        });
 
         Button classwork2Button = (Button) findViewById(R.id.classWork2Button);
         classwork2Button.setOnClickListener(new View.OnClickListener() {
@@ -46,5 +47,13 @@ public class MainActivity extends Activity {
             }
         });
 
+        Button classwork3Button = (Button) findViewById(R.id.classWork3Button);
+        classwork3Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Classwork3Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

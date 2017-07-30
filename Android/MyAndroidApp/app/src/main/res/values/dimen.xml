@@ -2,5 +2,9 @@
 <resources>
     <dimen name="classwork2_top_margin">20dp</dimen>
     <dimen name="text_size">23sp</dimen>
-    <dimen name="margin">50dp</dimen>
+    <dimen name="margin">40dp</dimen>
+    <dimen name="marginRight">30dp</dimen>
+
+    <!-- dz2 флаги -->
+
 </resources>

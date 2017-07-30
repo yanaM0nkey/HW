@@ -6,28 +6,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.gmail.ioanna.myandroidapp.main.MainActivity"
-    android:background="@color/mainBackground">
+    android:background="@color/background">
 
     <Button
+        style="@style/ChangeButton"
+        android:background="@drawable/main_button"
         android:id="@+id/dz1Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_dz1"
-        android:layout_margin="@dimen/margin"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/marginRight"
+        android:layout_marginRight="@dimen/margin"
         />
 
     <Button
+        style="@style/ChangeButton"
+        android:background="@drawable/main_button"
         android:id="@+id/dz2Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_dz2"
         android:layout_below="@+id/classWork2Button"
         android:layout_alignStart="@+id/dz1Button"
-        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginEnd="@dimen/marginRight"
         android:layout_marginLeft="@dimen/margin"
         android:layout_marginTop="@dimen/margin"/>
 
     <Button
+        style="@style/ChangeButton"
+        android:background="@drawable/main_button"
+        android:id="@+id/dz3Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_dz3"
+        android:layout_below="@+id/classWork3Button"
+        android:layout_alignStart="@+id/dz2Button"
+        android:layout_marginEnd="@dimen/marginRight"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"/>
+
+    <Button
+        style="@style/ChangeButton"
+        android:background="@drawable/main_button"
         android:id="@+id/classWork2Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,6 +58,34 @@
         android:layout_alignBaseline="@+id/dz1Button"
         android:layout_alignBottom="@+id/dz1Button"
         android:layout_toEndOf="@+id/dz1Button"
+        />
+
+    <Button
+        style="@style/ChangeButton"
+        android:background="@drawable/main_button"
+        android:id="@+id/classWork3Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_classwork3"
+        android:textAllCaps="false"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_alignBaseline="@+id/dz2Button"
+        android:layout_alignBottom="@+id/dz2Button"
+        android:layout_toEndOf="@+id/dz2Button"
+        />
+
+    <Button
+        style="@style/ChangeButton"
+        android:background="@drawable/main_button"
+        android:id="@+id/classWork4Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_classwork4"
+        android:textAllCaps="false"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_alignBaseline="@+id/dz3Button"
+        android:layout_alignBottom="@+id/dz3Button"
+        android:layout_toEndOf="@+id/dz3Button"
         />
 
 </RelativeLayout>

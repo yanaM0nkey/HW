@@ -4,7 +4,16 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="classworkBackground">#a6e269</color>
-    <color name="dzBackground">#74f1da</color>
-    <color name="mainBackground">#FFFFFF</color>
+    <color name="background">#74f1da</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="buttonColor">#878c8c</color>
+
+    <!-- dz2 флаги -->
+    <color name="dz2_red">#fa0101</color>
+    <color name="dz2_white">#FFFFFF</color>
+    <color name="dz2_green">#078e3d</color>
+    <color name="dz2_blue">#0729c4</color>
+    <color name="dz2_yellow">#e4da16</color>
+    <color name="dz2_dark_red">#d70707</color>
+
 </resources>
