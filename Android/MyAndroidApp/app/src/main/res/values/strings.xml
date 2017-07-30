@@ -16,4 +16,6 @@
     <string name="main_classwork4">ClassWork4</string>
     <!-- Classwork3 -->
     <string name="classwork3_button">Button</string>
+    <!-- DZ3 -->
+    <string name="dz3_button">Download</string>
 </resources>

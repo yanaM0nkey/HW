@@ -10,8 +10,13 @@ import android.widget.Button;
 import com.gmail.ioanna.myandroidapp.R;
 import com.gmail.ioanna.myandroidapp.classwork2.Classwork2Activity;
 import com.gmail.ioanna.myandroidapp.classwork3.Classwork3Activity;
+import com.gmail.ioanna.myandroidapp.classwork4.Classwork4Activity;
 import com.gmail.ioanna.myandroidapp.dz1.Dz1Activity;
 import com.gmail.ioanna.myandroidapp.dz2.Dz2Activity;
+import com.gmail.ioanna.myandroidapp.dz3.Dz3Activity;
+import com.gmail.ioanna.myandroidapp.dz4.Dz4Activity;
+
+
 
 
 public class MainActivity extends Activity {
@@ -38,6 +43,24 @@ public class MainActivity extends Activity {
             }
         });
 
+        Button dz3Button = (Button) findViewById(R.id.dz3Button);
+        dz3Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Dz3Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button dz4Button = (Button) findViewById(R.id.dz4Button);
+        dz4Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Dz4Activity.class);
+                startActivity(intent);
+            }
+        });
+
         Button classwork2Button = (Button) findViewById(R.id.classWork2Button);
         classwork2Button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +75,15 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Classwork3Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button classwork4Button = (Button) findViewById(R.id.classWork4Button);
+        classwork4Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Classwork4Activity.class);
                 startActivity(intent);
             }
         });
