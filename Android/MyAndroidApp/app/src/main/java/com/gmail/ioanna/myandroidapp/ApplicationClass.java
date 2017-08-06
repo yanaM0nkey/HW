@@ -1,4 +1,4 @@
-package com.gmail.ioanna.myandroidapp.main;
+package com.gmail.ioanna.myandroidapp;
 
 
 import android.app.Application;

@@ -29,9 +29,9 @@ public class Dz3Activity extends Activity {
 
         downloadButton = (Button)findViewById(R.id.download_button);
         imageView = (ImageView)findViewById(R.id.dz3_image);
-        link = findViewById(R.id.editText);
+        link = (EditText) findViewById(R.id.editText);
         link.setText(LINK);
-        text = findViewById(R.id.dz3_textView);
+        text = (TextView) findViewById(R.id.dz3_textView);
 
         downloadButton.setOnClickListener(new View.OnClickListener() {
             @Override

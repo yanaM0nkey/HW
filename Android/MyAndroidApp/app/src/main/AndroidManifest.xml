@@ -3,8 +3,10 @@
     package="com.gmail.ioanna.myandroidapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
-        android:name=".main.ApplicationClass"
+        android:name=".ApplicationClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,6 +19,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".dz1.Dz1Activity"/>
         <activity android:name=".classwork2.Classwork2Activity"/>
@@ -24,7 +27,21 @@
         <activity android:name=".classwork3.Classwork3Activity"/>
         <activity android:name=".classwork4.Classwork4Activity"/>
         <activity android:name=".dz3.Dz3Activity"/>
-        <activity android:name=".dz4.Dz4Activity"/>
+        <activity android:name=".dz4.Dz4Activity" />
+        <activity android:name=".classwork5.Classwork5Activity"/>
+        <activity android:name=".classwork6.Classwork6Activity"/>
+        <activity android:name=".dz5.Dz5Activity"/>
+        <activity android:name=".dz6.Dz6Activity"/>
+
+        <!-- <receiver android:name=".classwork5.MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGED"/>
+            </intent-filter>
+        </receiver> -->
+
+        <service android:name=".classwork5.MyService"/>
+        <service android:name=".classwork5.MyIntentService"/>
     </application>
 
 </manifest>

@@ -49,8 +49,8 @@ public class Dz1Activity extends Activity /*implements View.OnClickListener*/ {
 
         changeButton = (Button)findViewById(R.id.change_button);
 
-        textView1 = findViewById(R.id.textView1);
-        textView2 = findViewById(R.id.textView2);
+        textView1 = (TextView) findViewById(R.id.textView1);
+        textView2 = (TextView) findViewById(R.id.textView2);
 
         textView1.setText(username);
         textView2.setText(password);

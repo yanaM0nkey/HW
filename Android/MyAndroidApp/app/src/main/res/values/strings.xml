@@ -11,9 +11,13 @@
     <string name="main_dz2">DZ2</string>
     <string name="main_dz3">DZ3</string>
     <string name="main_dz4">DZ4</string>
+    <string name="main_dz5">DZ5</string>
+    <string name="main_dz6">DZ6</string>
     <string name="main_classwork2">ClassWork2</string>
     <string name="main_classwork3">ClassWork3</string>
     <string name="main_classwork4">ClassWork4</string>
+    <string name="main_classwork5">ClassWork5</string>
+    <string name="main_classwork6">ClassWork6</string>
     <!-- Classwork3 -->
     <string name="classwork3_button">Button</string>
     <!-- DZ3 -->
