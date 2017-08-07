@@ -69,23 +69,31 @@ public class MyView extends View {
         super.onDraw(canvas);
         int radius = Math.min(getWidth(),getHeight())/3;
         canvas.drawCircle(getWidth()/2,getHeight() - getHeight()/3, radius, myPaint);
+        myPaint.setTextSize(24);
+        canvas.drawText("12", getWidth()/2 - 12, 60+ + getHeight() - getHeight()/3 - radius, myPaint);
+        canvas.drawText("6", getWidth()/2 - 6, getHeight() - getHeight()/3 + radius - 40, myPaint);
+        canvas.drawText("3",getWidth()/2 + radius - 50, getHeight() - getHeight()/3 + 12, myPaint);
+        canvas.drawText("9", getWidth()/2 - radius + 40, getHeight() - getHeight()/3 + 12, myPaint);
+
         for(int i = 0; i < 60; i++) {
             if(i%15 == 0 || i == 0) {
                 myPaint.setStrokeWidth(5);
                 myPaint.setColor(ContextCompat.getColor(getContext(),R.color.dz2_red));
-                canvas.drawLine(getWidth() / 2, getHeight() - getHeight() / 3 - radius, getWidth() / 2, 30 + getHeight() - getHeight() / 3 - radius, myPaint);
+                canvas.drawLine(getWidth()/2, getHeight() - getHeight()/3 - radius, getWidth()/2, 30 + getHeight() - getHeight()/3 - radius, myPaint);
             } else if(i%5 == 0){
                 myPaint.setColor(ContextCompat.getColor(getContext(),R.color.dz2_blue));
                 myPaint.setStrokeWidth(3.5f);
-                canvas.drawLine(getWidth() / 2, getHeight() - getHeight() / 3 - radius, getWidth() / 2, 20 + getHeight() - getHeight() / 3 - radius, myPaint);
+                canvas.drawLine(getWidth()/2, getHeight() - getHeight()/3 - radius, getWidth()/2, 20 + getHeight() - getHeight()/3 - radius, myPaint);
             }
             else{
                 myPaint.setStrokeWidth(2);
                 myPaint.setColor(ContextCompat.getColor(getContext(),R.color.black));
-                canvas.drawLine(getWidth() / 2,getHeight() - getHeight() / 3 - radius, getWidth() / 2, 10 + getHeight() - getHeight() / 3 - radius, myPaint);
+                canvas.drawLine(getWidth()/2,getHeight() - getHeight()/3 - radius, getWidth()/2, 10 + getHeight() - getHeight()/3 - radius, myPaint);
             }
             canvas.rotate(6,getWidth()/2,getHeight() - getHeight()/3);
         }
+
+
 
         seconds = calendar.getTime().getSeconds();
         minutes = calendar.getTime().getMinutes();
@@ -94,28 +102,22 @@ public class MyView extends View {
         for(int i = 0;i < 60; i++) {
             if(i == seconds) {
                 myPaint.setStrokeWidth(1);
-                canvas.drawLine(getWidth() / 2, getHeight() - getHeight() / 3, getWidth() / 2, 30 - radius + getHeight() - getHeight() / 3, myPaint);
+                canvas.drawLine(getWidth()/2, getHeight() - getHeight()/3, getWidth()/2, 30 - radius + getHeight() - getHeight()/3, myPaint);
             }
-            canvas.rotate(6,getWidth()/2,getHeight() - getHeight()/3);
-        }
-
-
-        for(int i = 0; i < 60; i++){
             if(i == minutes){
                 myPaint.setColor(ContextCompat.getColor(getContext(),R.color.dz2_blue));
                 myPaint.setStrokeWidth(2.5f);
-                canvas.drawLine(getWidth() / 2,getHeight() - getHeight() / 3, getWidth() / 2, 50 - radius + getHeight() - getHeight() / 3, myPaint);
+                canvas.drawLine(getWidth()/2,getHeight() - getHeight()/3, getWidth()/2, 50 - radius + getHeight() - getHeight()/3, myPaint);
             }
             canvas.rotate(6,getWidth()/2,getHeight() - getHeight()/3);
         }
-
-        for(int i = 0; i < 60; i++){
+        for(int i = 0; i <= hours; i++){
             if(i == hours){
                 myPaint.setColor(ContextCompat.getColor(getContext(),R.color.dz2_red));
                 myPaint.setStrokeWidth(3);
-                canvas.drawLine(getWidth() / 2,getHeight() - getHeight() / 3, getWidth() / 2, 70 - radius + getHeight() - getHeight() / 3, myPaint);
+                canvas.drawLine(getWidth()/2,getHeight() - getHeight()/3, getWidth()/2, 70 - radius + getHeight() - getHeight()/3, myPaint);
             }
-            canvas.rotate(6,getWidth()/2,getHeight() - getHeight()/3);
+            canvas.rotate(30,getWidth()/2,getHeight() - getHeight()/3);
         }
 
     }
