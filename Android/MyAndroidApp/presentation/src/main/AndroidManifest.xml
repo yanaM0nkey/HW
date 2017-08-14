@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gmail.ioanna.myandroidapp">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:name=".ApplicationClass"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".dz1.Dz1Activity"/>
+        <activity android:name=".classwork2.Classwork2Activity"/>
+        <activity android:name=".dz2.Dz2Activity"/>
+        <activity android:name=".classwork3.Classwork3Activity"/>
+        <activity android:name=".classwork4.Classwork4Activity"/>
+        <activity android:name=".dz3.Dz3Activity"/>
+        <activity android:name=".dz4.Dz4Activity" />
+        <activity android:name=".classwork5.Classwork5Activity"/>
+        <activity android:name=".classwork6.Classwork6Activity"/>
+        <activity android:name=".dz5.Dz5Activity"/>
+        <activity android:name=".dz6.Dz6Activity"/>
+        <activity android:name=".classwork7.Classwork7Activity"/>
+        <activity android:name=".classwork8.Classwork8Activity"/>
+        <activity android:name=".classwork9.Classwork9Activity"/>
+
+        <!-- <receiver android:name=".classwork5.MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGED"/>
+            </intent-filter>
+        </receiver> -->
+
+        <service android:name=".classwork5.MyService"/>
+        <service android:name=".classwork5.MyIntentService"/>
+        <service android:name=".dz5.Dz5Service"/>
+    </application>
+
+</manifest>

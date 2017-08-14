@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MyAndroidApp</string>
+    <!-- Classwork2 -->
+    <string name="classwork2_name">Name</string>
+    <string name="classwork2_login">Login</string>
+    <string name="classwork2_password">Password</string>
+    <!-- DZ1 -->
+    <string name="dz1_change">Change</string>
+    <!-- Main -->
+    <string name="main_dz1">DZ1</string>
+    <string name="main_dz2">DZ2</string>
+    <string name="main_dz3">DZ3</string>
+    <string name="main_dz4">DZ4</string>
+    <string name="main_dz5">DZ5</string>
+    <string name="main_dz6">DZ6</string>
+    <string name="main_dz7">DZ7</string>
+    <string name="main_dz8">DZ8</string>
+    <string name="main_dz9">DZ9</string>
+    <string name="main_classwork2">ClassWork2</string>
+    <string name="main_classwork3">ClassWork3</string>
+    <string name="main_classwork4">ClassWork4</string>
+    <string name="main_classwork5">ClassWork5</string>
+    <string name="main_classwork6">ClassWork6</string>
+    <string name="main_classwork7">ClassWork7</string>
+    <string name="main_classwork8">ClassWork8</string>
+    <string name="main_classwork9">ClassWork9</string>
+    <!-- Classwork3 -->
+    <string name="classwork3_button">Button</string>
+    <!-- DZ3 -->
+    <string name="dz3_button">Download</string>
+</resources>
