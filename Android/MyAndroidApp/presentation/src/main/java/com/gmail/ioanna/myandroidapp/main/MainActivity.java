@@ -4,11 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import com.gmail.ioanna.myandroidapp.R;
 import com.gmail.ioanna.myandroidapp.classwork2.Classwork2Activity;
@@ -26,14 +24,58 @@ import com.gmail.ioanna.myandroidapp.dz4.Dz4Activity;
 import com.gmail.ioanna.myandroidapp.dz5.Dz5Activity;
 import com.gmail.ioanna.myandroidapp.dz6.Dz6Activity;
 
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableObserver;
+import io.reactivex.subjects.BehaviorSubject;
+import io.reactivex.subjects.ReplaySubject;
+
 
 public class MainActivity extends Activity {
 
 
+  //  public PublishSubject<String> publishSubject =PublishSubject.create();
+
+    //public BehaviorSubject<String> behaviorSubject =BehaviorSubject.create();
+    public ReplaySubject<String> replaySubject =ReplaySubject.create();
+    Disposable disposable;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        replaySubject.onNext("One");
+        replaySubject.onNext("Two");
+        replaySubject.onNext("Three");
+        replaySubject.onNext("Four");
+        replaySubject.onNext("Five");
+        disposable = replaySubject.subscribeWith(new DisposableObserver<String>() {
+            @Override
+            public void onNext(@NonNull String s) {
+                Log.e("AAAA",s);
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+
+        replaySubject.onNext("Four");
+        replaySubject.onNext("Five");
+
+
+
+
 
         Button dz1Button = (Button) findViewById(R.id.dz1Button);
         dz1Button.setOnClickListener(new View.OnClickListener() {
@@ -170,5 +212,15 @@ public class MainActivity extends Activity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(!disposable.isDisposed())
+            disposable.dispose();
+    }
 }

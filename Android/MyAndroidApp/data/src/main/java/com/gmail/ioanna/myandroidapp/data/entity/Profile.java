@@ -1,7 +1,7 @@
-package com.gmail.ioanna.myandroidapp.domain.entity;
+package com.gmail.ioanna.myandroidapp.data.entity;
 
 
-public class Profile {
+public class Profile implements DataModel {
 
     private String name;
     private String surname;
@@ -30,7 +30,4 @@ public class Profile {
     public void setAge(int age) {
         this.age = age;
     }
-
-
-
 }

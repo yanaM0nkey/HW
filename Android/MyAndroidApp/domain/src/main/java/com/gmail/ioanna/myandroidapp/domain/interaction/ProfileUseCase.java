@@ -1,17 +1,46 @@
 package com.gmail.ioanna.myandroidapp.domain.interaction;
 
-import com.gmail.ioanna.myandroidapp.domain.entity.Profile;
+import com.gmail.ioanna.myandroidapp.data.entity.Profile;
+import com.gmail.ioanna.myandroidapp.domain.entity.ProfileModel;
 import com.gmail.ioanna.myandroidapp.domain.entity.ProfileId;
 import com.gmail.ioanna.myandroidapp.domain.interaction.base.UseCase;
 
+import java.util.concurrent.TimeUnit;
 
-public class ProfileUseCase extends UseCase<ProfileId, Profile> {
+import io.reactivex.Observable;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
+
+
+public class ProfileUseCase extends UseCase<ProfileId, ProfileModel> {
     @Override
-    protected Profile buildUseCase() {
+    protected Observable<ProfileModel> buildUseCase() {
+
+        //тут делаем запрос к слою data в котором дергаем метод на сервер Rest
+        //создаем объект Profile который лежит в data слое
+        //это для теста, в будущем этот объект нам вернет слой data
         Profile profile = new Profile();
         profile.setName("Name");
         profile.setSurname("Surname");
         profile.setAge(20);
-        return profile;
+        return Observable.just(profile)
+                .filter(new Predicate<Profile>() {
+                    @Override
+                    public boolean test(@NonNull Profile profile) throws Exception {
+                        return profile.getName() != null;
+                    }
+                })
+                .delay(3, TimeUnit.SECONDS)
+                .map(new Function<Profile, ProfileModel>() {
+            @Override
+            public ProfileModel apply(@NonNull Profile profile) throws Exception {
+                ProfileModel profileModel = new ProfileModel();
+                profileModel.setName(profile.getName());
+                profileModel.setSurname(profile.getSurname());
+                profileModel.setAge(profile.getAge());
+                return profileModel;
+            }
+        });
     }
 }
