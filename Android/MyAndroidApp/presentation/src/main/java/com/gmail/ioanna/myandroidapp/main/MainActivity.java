@@ -23,6 +23,7 @@ import com.gmail.ioanna.myandroidapp.dz3.Dz3Activity;
 import com.gmail.ioanna.myandroidapp.dz4.Dz4Activity;
 import com.gmail.ioanna.myandroidapp.dz5.Dz5Activity;
 import com.gmail.ioanna.myandroidapp.dz6.Dz6Activity;
+import com.gmail.ioanna.myandroidapp.dz7.Dz7Activity;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
@@ -128,6 +129,15 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Dz6Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button dz7Button = (Button) findViewById(R.id.dz7Button);
+        dz7Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Dz7Activity.class);
                 startActivity(intent);
             }
         });

@@ -8,6 +8,7 @@ import com.gmail.ioanna.myandroidapp.base.BaseViewModel;
 import com.gmail.ioanna.myandroidapp.domain.entity.ProfileModel;
 import com.gmail.ioanna.myandroidapp.domain.entity.ProfileId;
 import com.gmail.ioanna.myandroidapp.domain.interaction.ProfileUseCase;
+import com.gmail.ioanna.myandroidapp.domain.interaction.SaveProfileUseCase;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
@@ -17,7 +18,7 @@ import io.reactivex.subjects.PublishSubject;
 public class Classwork9ViewModel implements BaseViewModel {
 
 
-    public PublishSubject<String> publishSubject =PublishSubject.create();
+    public PublishSubject<String> publishSubject = PublishSubject.create();
     public enum STATE{PROGRESS, DATA}
 
     public ObservableField<String> name = new ObservableField<>("");
@@ -26,6 +27,8 @@ public class Classwork9ViewModel implements BaseViewModel {
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
 
     private ProfileUseCase useCase = new ProfileUseCase();
+
+    private SaveProfileUseCase saveProfileUseCase = new SaveProfileUseCase();
 
 
 
@@ -42,6 +45,28 @@ public class Classwork9ViewModel implements BaseViewModel {
 
     @Override
     public void resume() {
+
+        ProfileModel profileModel = new ProfileModel();
+        profileModel.setAge(27);
+        profileModel.setSurname("nlsn");
+        profileModel.setName("mlak");
+        saveProfileUseCase.execute(profileModel, new DisposableObserver<Void>() {
+            @Override
+            public void onNext(@NonNull Void aVoid) {
+                Log.e("fff", "onNext");
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+                Log.e("AAA", "error = ", e);
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
         ProfileId profileId = new ProfileId();
         profileId.setId("123");
         useCase.execute(profileId, new DisposableObserver<ProfileModel>() {
@@ -73,6 +98,7 @@ public class Classwork9ViewModel implements BaseViewModel {
     @Override
     public void pause() {
         useCase.dispose();
+
 
     }
 }

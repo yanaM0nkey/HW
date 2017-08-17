@@ -13,17 +13,17 @@ public abstract class UseCase<InParam, OutParam> {
 
     private Disposable disposable;
 
-    protected abstract Observable<OutParam> buildUseCase();
+    protected abstract Observable<OutParam> buildUseCase(InParam param);
 
     public void execute(InParam param, DisposableObserver<OutParam> disposableObserver){
-        disposable = buildUseCase()
+        disposable = buildUseCase(param)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribeWith(disposableObserver);
     }
 
     public void dispose(){
-        if(!disposable.isDisposed()){
+      if(!disposable.isDisposed()){
             disposable.dispose();
         }
 

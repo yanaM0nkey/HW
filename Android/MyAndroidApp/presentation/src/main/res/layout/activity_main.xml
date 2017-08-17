@@ -109,10 +109,10 @@
             <Button
                 style="@style/ChangeButton"
                 android:background="@drawable/main_button"
-                android:id="@+id/dz8Button"
+                android:id="@+id/dz9Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/main_dz8"
+                android:text="@string/main_dz9"
                 android:layout_below="@+id/classWork8Button"
                 android:layout_alignStart="@+id/dz7Button"
                 android:layout_marginEnd="@dimen/marginRight"
@@ -122,12 +122,12 @@
             <Button
                 style="@style/ChangeButton"
                 android:background="@drawable/main_button"
-                android:id="@+id/dz9Button"
+                android:id="@+id/dz10Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/main_dz9"
+                android:text="@string/main_dz10"
                 android:layout_below="@+id/classWork9Button"
-                android:layout_alignStart="@+id/dz8Button"
+                android:layout_alignStart="@+id/dz9Button"
                 android:layout_marginEnd="@dimen/marginRight"
                 android:layout_marginLeft="@dimen/margin"
                 android:layout_marginTop="@dimen/margin"/>
@@ -249,9 +249,9 @@
                 android:text="@string/main_classwork9"
                 android:textAllCaps="false"
                 android:layout_marginLeft="@dimen/margin"
-                android:layout_alignBaseline="@+id/dz8Button"
-                android:layout_alignBottom="@+id/dz8Button"
-                android:layout_toEndOf="@+id/dz8Button"
+                android:layout_alignBaseline="@+id/dz9Button"
+                android:layout_alignBottom="@+id/dz9Button"
+                android:layout_toEndOf="@+id/dz9Button"
                 />
 
 
