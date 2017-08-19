@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.gmail.ioanna.myandroidapp.R;
+import com.gmail.ioanna.myandroidapp.classwork12.Classwork12Activity;
 import com.gmail.ioanna.myandroidapp.classwork2.Classwork2Activity;
 import com.gmail.ioanna.myandroidapp.classwork3.Classwork3Activity;
 import com.gmail.ioanna.myandroidapp.classwork4.Classwork4Activity;
@@ -24,12 +24,7 @@ import com.gmail.ioanna.myandroidapp.dz4.Dz4Activity;
 import com.gmail.ioanna.myandroidapp.dz5.Dz5Activity;
 import com.gmail.ioanna.myandroidapp.dz6.Dz6Activity;
 import com.gmail.ioanna.myandroidapp.dz7.Dz7Activity;
-
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.observers.DisposableObserver;
-import io.reactivex.subjects.BehaviorSubject;
-import io.reactivex.subjects.ReplaySubject;
+import com.gmail.ioanna.myandroidapp.dz9.Dz9Activity;
 
 
 public class MainActivity extends Activity {
@@ -38,8 +33,9 @@ public class MainActivity extends Activity {
   //  public PublishSubject<String> publishSubject =PublishSubject.create();
 
     //public BehaviorSubject<String> behaviorSubject =BehaviorSubject.create();
-    public ReplaySubject<String> replaySubject =ReplaySubject.create();
-    Disposable disposable;
+    //public ReplaySubject<String> replaySubject =ReplaySubject.create();
+
+    //Disposable disposable;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +44,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        replaySubject.onNext("One");
+        /*replaySubject.onNext("One");
         replaySubject.onNext("Two");
         replaySubject.onNext("Three");
         replaySubject.onNext("Four");
@@ -72,7 +68,7 @@ public class MainActivity extends Activity {
 
 
         replaySubject.onNext("Four");
-        replaySubject.onNext("Five");
+        replaySubject.onNext("Five");*/
 
 
 
@@ -141,6 +137,15 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        Button dz9Button = (Button) findViewById(R.id.dz9Button);
+        dz9Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dz9Activity.show(MainActivity.this);
+            }
+        });
+
 
 
 
@@ -212,13 +217,17 @@ public class MainActivity extends Activity {
         classwork9Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Classwork9Activity.class);
-                startActivity(intent);
+                Classwork9Activity.show(MainActivity.this);
             }
         });
 
-
-
+        Button classwork12Button = (Button) findViewById(R.id.classWork12Button);
+        classwork12Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Classwork12Activity.show(MainActivity.this);
+            }
+        });
 
     }
 
@@ -230,7 +239,5 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(!disposable.isDisposed())
-            disposable.dispose();
     }
 }

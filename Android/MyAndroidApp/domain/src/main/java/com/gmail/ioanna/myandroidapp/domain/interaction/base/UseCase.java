@@ -1,9 +1,7 @@
 package com.gmail.ioanna.myandroidapp.domain.interaction.base;
 
-
 import io.reactivex.Observable;
-
-
+import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
@@ -15,18 +13,16 @@ public abstract class UseCase<InParam, OutParam> {
 
     protected abstract Observable<OutParam> buildUseCase(InParam param);
 
-    public void execute(InParam param, DisposableObserver<OutParam> disposableObserver){
+    public void execute(InParam param, DisposableObserver<OutParam> disposableObserver) {
         disposable = buildUseCase(param)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribeWith(disposableObserver);
     }
 
-    public void dispose(){
-      if(!disposable.isDisposed()){
+    public void dispose() {
+        if(!disposable.isDisposed()) {
             disposable.dispose();
         }
-
     }
-
 }

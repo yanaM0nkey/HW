@@ -1,8 +1,7 @@
-package com.gmail.ioanna.myandroidapp.domain.interaction;
+package com.gmail.ioanna.myandroidapp.domain.interaction.old;
 
 import com.gmail.ioanna.myandroidapp.data.entity.Profile;
 import com.gmail.ioanna.myandroidapp.data.net.RestService;
-import com.gmail.ioanna.myandroidapp.domain.entity.ProfileId;
 import com.gmail.ioanna.myandroidapp.domain.entity.ProfileModel;
 import com.gmail.ioanna.myandroidapp.domain.interaction.base.UseCase;
 
@@ -11,7 +10,6 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
-
 
 public class SaveProfileUseCase extends UseCase<ProfileModel, Void> {
     @Override
@@ -24,5 +22,4 @@ public class SaveProfileUseCase extends UseCase<ProfileModel, Void> {
 
         return RestService.getInstance().saveProfile(profileData);
     }
-
 }

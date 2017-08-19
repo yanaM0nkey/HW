@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout>
 
     <data>
+
         <import type="java.lang.String"/>
+
         <import type="com.gmail.ioanna.myandroidapp.classwork9.Classwork9ViewModel.STATE"/>
+
         <import type="android.view.View"/>
 
         <variable
@@ -13,31 +17,33 @@
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#d9eddd"
         android:gravity="center"
-        android:background="@color/background">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/margin"
-            android:layout_margin="@dimen/margin"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
             android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}"
             android:text="@{viewModel.name}" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin"
-            android:textSize="@dimen/margin"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
             android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}"
             android:text="@{viewModel.surname}" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin"
-            android:textSize="@dimen/margin"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
             android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}"
             android:text="@{String.valueOf(viewModel.age)}" />
 

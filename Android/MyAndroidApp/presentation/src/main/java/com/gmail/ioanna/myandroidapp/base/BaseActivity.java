@@ -1,12 +1,11 @@
 package com.gmail.ioanna.myandroidapp.base;
 
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 
-abstract public class BaseActivity extends Activity {
+
+abstract public class BaseActivity extends Activity{
 
     protected BaseViewModel viewModel;
 

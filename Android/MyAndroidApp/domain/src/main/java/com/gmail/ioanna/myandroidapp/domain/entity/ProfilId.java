@@ -1,10 +1,10 @@
 package com.gmail.ioanna.myandroidapp.domain.entity;
 
 /**
- * Created by UX501 on 11.08.2017.
+ * Created by UX501 on 18.08.2017.
  */
 
-public class ProfileId implements DomainModel {
+public class ProfilId implements DomainModel {
 
     private String id;
 

@@ -1,6 +1,5 @@
 package com.gmail.ioanna.myandroidapp.domain.entity;
 
-
 public class ProfileModel implements DomainModel{
 
     private String name;
@@ -30,7 +29,4 @@ public class ProfileModel implements DomainModel{
     public void setAge(int age) {
         this.age = age;
     }
-
-
-
 }

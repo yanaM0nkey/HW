@@ -10,7 +10,6 @@ import android.widget.ImageView;
 
 import com.gmail.ioanna.myandroidapp.R;
 import com.gmail.ioanna.myandroidapp.databinding.ActivityDz7Binding;
-import com.gmail.ioanna.myandroidapp.domain.entity.ProfileModel;
 import com.squareup.picasso.Picasso;
 
 public class Dz7Activity extends Activity{

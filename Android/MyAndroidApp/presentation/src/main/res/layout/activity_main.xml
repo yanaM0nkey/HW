@@ -254,6 +254,20 @@
                 android:layout_toEndOf="@+id/dz9Button"
                 />
 
+            <Button
+                style="@style/ChangeButton"
+                android:background="@drawable/main_button"
+                android:id="@+id/classWork12Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_classwork12"
+                android:textAllCaps="false"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_alignBaseline="@+id/dz10Button"
+                android:layout_alignBottom="@+id/dz10Button"
+                android:layout_toEndOf="@+id/dz10Button"
+                />
+
 
             </RelativeLayout>
     </ScrollView>

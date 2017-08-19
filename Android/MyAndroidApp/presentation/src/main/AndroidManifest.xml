@@ -34,8 +34,10 @@
         <activity android:name=".dz6.Dz6Activity"/>
         <activity android:name=".classwork7.Classwork7Activity"/>
         <activity android:name=".classwork8.Classwork8Activity"/>
-        <activity android:name=".classwork9.Classwork9Activity"/>
         <activity android:name=".dz7.Dz7Activity"/>
+        <activity android:name=".classwork9.Classwork9Activity"/>
+        <activity android:name=".classwork12.Classwork12Activity"/>
+        <activity android:name=".dz9.Dz9Activity"/>
 
         <!-- <receiver android:name=".classwork5.MyBroadcastReceiver">
             <intent-filter>
