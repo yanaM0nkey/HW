@@ -16,6 +16,7 @@
     <string name="main_dz7">DZ7</string>
     <string name="main_dz9">DZ9</string>
     <string name="main_dz10">DZ10</string>
+    <string name="main_dz11">DZ11</string>
     <string name="main_classwork2">ClassWork2</string>
     <string name="main_classwork3">ClassWork3</string>
     <string name="main_classwork4">ClassWork4</string>
@@ -25,6 +26,7 @@
     <string name="main_classwork8">ClassWork8</string>
     <string name="main_classwork9">ClassWork9</string>
     <string name="main_classwork12">ClassWork12</string>
+    <string name="main_classwork13">ClassWork13</string>
     <!-- Classwork3 -->
     <string name="classwork3_button">Button</string>
     <!-- DZ3 -->

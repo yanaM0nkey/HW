@@ -48,8 +48,15 @@ public class Dz9ViewModel implements BaseViewModel {
         getProfileUseCase.execute(null, new DisposableObserver<List<Dz9ProfileModel>>() {
             @Override
             public void onNext(@io.reactivex.annotations.NonNull List<Dz9ProfileModel> profileModels) {
+                Log.e("AAA viw Model", "size = " + profileModels.size());
+
+
+
                 adapter.setItems(profileModels);
                 state.set(STATE.DATA);
+
+                Log.e("AAA viw Model", "adapter size = " + adapter.getItemCount());
+
             }
 
             @Override

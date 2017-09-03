@@ -13,12 +13,12 @@ public class ProfileItemViewModel extends BaseItemViewModel<Dz9ProfileModel> {
 
     public ObservableField<String> url = new ObservableField<>("");
 
-    public String getImageUrl(Dz9ProfileModel item) {
+    /*public String getImageUrl(Dz9ProfileModel item) {
         return item.getLink();
-    }
+    }*/
 
 
-    @BindingAdapter({"bind: imageUrl"})
+    @BindingAdapter({"bind:src"})
     public static void loadImage(ImageView view, String imageUrl) {
         Picasso.with(view.getContext())
                 .load(imageUrl)
