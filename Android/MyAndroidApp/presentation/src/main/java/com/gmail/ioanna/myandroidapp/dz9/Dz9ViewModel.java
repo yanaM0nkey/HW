@@ -4,15 +4,11 @@ package com.gmail.ioanna.myandroidapp.dz9;
 import android.app.Activity;
 
 import android.databinding.ObservableField;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.gmail.ioanna.myandroidapp.base.BaseViewModel;
-import com.gmail.ioanna.myandroidapp.classwork12.Classwork12ViewModel;
 import com.gmail.ioanna.myandroidapp.domain.entity.Dz9ProfileModel;
-import com.gmail.ioanna.myandroidapp.domain.entity.ProfileModel;
-import com.gmail.ioanna.myandroidapp.domain.interaction.Dz9GetProfileUseCase;
-import com.gmail.ioanna.myandroidapp.domain.interaction.GetProfileUseCase;
+import com.gmail.ioanna.myandroidapp.domain.interaction.old.Dz9GetProfileUseCase;
 
 import java.util.List;
 

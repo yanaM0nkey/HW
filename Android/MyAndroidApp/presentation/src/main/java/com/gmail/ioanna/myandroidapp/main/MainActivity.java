@@ -10,6 +10,8 @@ import android.widget.Button;
 import com.gmail.ioanna.myandroidapp.R;
 import com.gmail.ioanna.myandroidapp.classwork12.Classwork12Activity;
 import com.gmail.ioanna.myandroidapp.classwork13.Classwork13Activity;
+import com.gmail.ioanna.myandroidapp.classwork14.Classwork14Activity;
+import com.gmail.ioanna.myandroidapp.classwork16.Classwork16Activity;
 import com.gmail.ioanna.myandroidapp.classwork2.Classwork2Activity;
 import com.gmail.ioanna.myandroidapp.classwork3.Classwork3Activity;
 import com.gmail.ioanna.myandroidapp.classwork4.Classwork4Activity;
@@ -20,6 +22,7 @@ import com.gmail.ioanna.myandroidapp.classwork8.Classwork8Activity;
 import com.gmail.ioanna.myandroidapp.classwork9.Classwork9Activity;
 import com.gmail.ioanna.myandroidapp.dz1.Dz1Activity;
 import com.gmail.ioanna.myandroidapp.dz10.Dz10Activity;
+import com.gmail.ioanna.myandroidapp.dz11.Dz11_1Activity;
 import com.gmail.ioanna.myandroidapp.dz2.Dz2Activity;
 import com.gmail.ioanna.myandroidapp.dz3.Dz3Activity;
 import com.gmail.ioanna.myandroidapp.dz4.Dz4Activity;
@@ -156,6 +159,14 @@ public class MainActivity extends Activity {
             }
         });
 
+        Button dz11Button = (Button) findViewById(R.id.dz11Button);
+        dz11Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dz11_1Activity.show(MainActivity.this);
+            }
+        });
+
 
 
 
@@ -244,6 +255,22 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Classwork13Activity.show(MainActivity.this);
+            }
+        });
+
+        Button classwork14Button = (Button) findViewById(R.id.classWork14Button);
+        classwork14Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Classwork14Activity.show(MainActivity.this);
+            }
+        });
+
+        Button classwork16Button = (Button) findViewById(R.id.classWork16Button);
+        classwork16Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Classwork16Activity.show(MainActivity.this);
             }
         });
 

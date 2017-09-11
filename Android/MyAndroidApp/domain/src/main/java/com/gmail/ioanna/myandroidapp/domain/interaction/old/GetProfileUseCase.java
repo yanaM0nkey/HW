@@ -1,4 +1,4 @@
-package com.gmail.ioanna.myandroidapp.domain.interaction;
+package com.gmail.ioanna.myandroidapp.domain.interaction.old;
 
 
 import com.gmail.ioanna.myandroidapp.data.entity.Profile;

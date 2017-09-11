@@ -11,6 +11,8 @@ import com.gmail.ioanna.myandroidapp.dz7.ProfileViewModel;
 
 public class ProfileAdapter extends BaseAdapter<ProfileModel,ProfileItemViewModel> {
 
+
+
     @Override
     public BaseItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ProfileItemViewModel itemViewModel = new ProfileItemViewModel();

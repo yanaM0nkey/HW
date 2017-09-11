@@ -1,4 +1,4 @@
-package com.gmail.ioanna.myandroidapp.domain.interaction;
+package com.gmail.ioanna.myandroidapp.domain.interaction.old;
 
 
 import android.util.Log;
