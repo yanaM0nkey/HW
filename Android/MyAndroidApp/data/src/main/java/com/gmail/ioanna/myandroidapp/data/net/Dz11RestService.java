@@ -1,6 +1,8 @@
 package com.gmail.ioanna.myandroidapp.data.net;
 
 
+import android.util.Log;
+
 import com.gmail.ioanna.myandroidapp.data.entity.Dz11Profile;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,6 +55,11 @@ public class Dz11RestService {
 
     public Observable<List<Dz11Profile>> getProfiles() {
         return restApi.getProfiles();
+    }
+
+    public Observable<Dz11Profile> getProfileById(String id){
+        Log.e("restser", id);
+        return restApi.getProfileById(id);
     }
 
     /*public Observable<Void> saveProfile(Profile profile) {

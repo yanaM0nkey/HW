@@ -28,30 +28,31 @@ public class Classwork13Activity extends FragmentActivity {
         setContentView(R.layout.activity_classwork13);
 
         if(savedInstanceState == null)
-            showFragment(getSupportFragmentManager(), new Classwork13Fragment(),false);
+            showFragment(getSupportFragmentManager(), new Classwork13Fragment()/*,false*/);
 
 
         findViewById(R.id.classWork13Button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showFragment(getSupportFragmentManager(), Classwork13Fragment.newInstance(getSupportFragmentManager(),"nlskfnv"), true);
+                showFragment(getSupportFragmentManager(), new Classwork13Fragment()/*Classwork13Fragment.newInstance(getSupportFragmentManager(),"nlskfnv"), true*/);
             }
         });
 
         findViewById(R.id.classWork13Button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showFragment(getSupportFragmentManager(), new Classwork13FragmentSecond(), true);
+                showFragment(getSupportFragmentManager(), new Classwork13FragmentSecond()/*, true*/);
 
 
             }
         });
     }
 
-    public static void showFragment(FragmentManager fragmentManager, Fragment fragment, boolean addToBack){
+    public static void showFragment(FragmentManager fragmentManager, Fragment fragment/*, boolean addToBack*/){
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment, fragment.getClass().getName());
-        if(addToBack) fragmentTransaction.addToBackStack(null);
+        //if(addToBack)
+            fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
     }

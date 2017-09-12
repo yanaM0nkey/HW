@@ -31,8 +31,8 @@ public class ProfileItemViewModel extends BaseItemViewModel<Dz11ProfileModel>{
     public void onSuperButtonClick(){
         Log.e("AAA", "Click");
         Intent intent = new Intent(activity, Dz11_2Activity.class);
+        intent.putExtra("id", id.get());
+        Log.e("AAA", id.get());
         activity.startActivity(intent);
-
-        //Classwork8Activity.show(activity);
     }
 }

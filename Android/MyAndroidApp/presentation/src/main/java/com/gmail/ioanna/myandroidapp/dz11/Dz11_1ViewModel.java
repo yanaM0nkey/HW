@@ -25,9 +25,10 @@ public class Dz11_1ViewModel implements BaseViewModel {
 
     public Dz11_1ViewModel(Activity activity) {
         this.activity = activity;
+        adapter = new ProfileAdapter(activity);
     }
 
-    public ProfileAdapter adapter = new ProfileAdapter(activity);
+    public ProfileAdapter adapter;
 
     @Override
     public void init() {
@@ -45,9 +46,6 @@ public class Dz11_1ViewModel implements BaseViewModel {
             @Override
             public void onNext(@io.reactivex.annotations.NonNull List<Dz11ProfileModel> profileModels) {
                 Log.e("AAA viw Model", "size = " + profileModels.size());
-
-
-
                 adapter.setItems(profileModels);
                 state.set(STATE.DATA);
 
@@ -72,6 +70,6 @@ public class Dz11_1ViewModel implements BaseViewModel {
 
     @Override
     public void pause() {
-
+        getProfileUseCase.dispose();
     }
 }

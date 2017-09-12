@@ -11,7 +11,7 @@
         <import type="android.view.View"/>
 
         <variable
-            name="model"
+            name="viewModel"
             type="com.gmail.ioanna.myandroidapp.dz11.Dz11_2ViewModel"/>
 
     </data>
@@ -26,12 +26,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:visibility="@{model.state == STATE.DATA ? View.VISIBLE : View.GONE}">
+            android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}">
 
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.name}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.surname}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.age}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.country}"/>
 
         </LinearLayout>
 
@@ -39,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="@{model.state == STATE.PROGRESS ? View.VISIBLE : View.GONE}"/>
+            android:visibility="@{viewModel.state == STATE.PROGRESS ? View.VISIBLE : View.GONE}"/>
 
     </LinearLayout>
 

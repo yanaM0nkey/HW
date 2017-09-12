@@ -17,6 +17,7 @@ public class ProfileAdapter extends BaseAdapter<Dz11ProfileModel, ProfileItemVie
 
     public ProfileAdapter(Activity activity) {
         this.activity = activity;
+
     }
 
     @Override
