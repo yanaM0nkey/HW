@@ -9,6 +9,8 @@ public class Dz11Profile implements DataModel {
     private String surname;
     private String country;
     private int age;
+
+    @SerializedName("objectId")
     private String id;
 
     public String getName() {

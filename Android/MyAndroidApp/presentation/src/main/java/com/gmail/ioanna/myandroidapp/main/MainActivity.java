@@ -12,6 +12,7 @@ import com.gmail.ioanna.myandroidapp.classwork12.Classwork12Activity;
 import com.gmail.ioanna.myandroidapp.classwork13.Classwork13Activity;
 import com.gmail.ioanna.myandroidapp.classwork14.Classwork14Activity;
 import com.gmail.ioanna.myandroidapp.classwork16.Classwork16Activity;
+import com.gmail.ioanna.myandroidapp.classwork18.Classwork18Activity;
 import com.gmail.ioanna.myandroidapp.classwork2.Classwork2Activity;
 import com.gmail.ioanna.myandroidapp.classwork3.Classwork3Activity;
 import com.gmail.ioanna.myandroidapp.classwork4.Classwork4Activity;
@@ -271,6 +272,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Classwork16Activity.show(MainActivity.this);
+            }
+        });
+
+        Button classwork18Button = (Button) findViewById(R.id.classWork18Button);
+        classwork18Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Classwork18Activity.show(MainActivity.this);
             }
         });
 

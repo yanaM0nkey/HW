@@ -63,7 +63,7 @@ public class Dz11_2ViewModel implements BaseViewModel {
 
             @Override
             public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-
+                Log.e("AAAAA", "error = " +e.toString());
             }
 
             @Override

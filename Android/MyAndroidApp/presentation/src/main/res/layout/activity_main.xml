@@ -171,6 +171,19 @@
                 android:layout_marginLeft="@dimen/margin"
                 android:layout_marginTop="@dimen/margin"/>
 
+            <Button
+                style="@style/ChangeButton"
+                android:background="@drawable/main_button"
+                android:id="@+id/dz15Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_dz15"
+                android:layout_below="@+id/classWork16Button"
+                android:layout_alignStart="@+id/dz14Button"
+                android:layout_marginEnd="@dimen/marginRight"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"/>
+
 
 
 
@@ -347,6 +360,20 @@
                 android:layout_alignBaseline="@+id/dz14Button"
                 android:layout_alignBottom="@+id/dz14Button"
                 android:layout_toEndOf="@+id/dz14Button"
+                />
+
+            <Button
+                style="@style/ChangeButton"
+                android:background="@drawable/main_button"
+                android:id="@+id/classWork18Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_classwork18"
+                android:textAllCaps="false"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_alignBaseline="@+id/dz15Button"
+                android:layout_alignBottom="@+id/dz15Button"
+                android:layout_toEndOf="@+id/dz15Button"
                 />
 
 
