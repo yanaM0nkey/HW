@@ -12,17 +12,65 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "API_ENDPOINT", '"example"'
     }
+
+
+    signingConfigs{
+
+        debug{
+           /* storeFile file('E:\\debug.jks')
+            storePassword 'pipochka77'
+            keyAlias 'key0'
+            keyPassword '14081997'*/
+        }
+
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug{
+
+           // signingConfig signingConfig.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         }
     }
     dataBinding{
         enabled = true
     }
 
+    productFlavors{
+
+        production{
+            buildConfigField "String", "API_REST", "\"https://tut.by/\""
+            versionCode 1
+            versionName "1.0"
+
+        }
+
+        developer{
+            buildConfigField "String", "API_REST", "\"https://test.tut.by/\""
+            versionCode 1
+            versionName "0.1"
+
+        }
+
+    }
+
 }
+
+/*task loadToFabric(dependsOn: "assembleDeveloperRelease"){
+
+def task = tasks.getByName("crashlyticsUploadDistributionDeveloperRelease")
+task.ext.betaDistributionReleaseNotes = ""
+task.ext.betaDistributionGroupAliases = ""
+task.execute()
+
+}*/
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

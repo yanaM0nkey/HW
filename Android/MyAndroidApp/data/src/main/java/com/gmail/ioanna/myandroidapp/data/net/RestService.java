@@ -1,6 +1,8 @@
 package com.gmail.ioanna.myandroidapp.data.net;
 
+import com.gmail.ioanna.myandroidapp.data.entity.AccessTokenData;
 import com.gmail.ioanna.myandroidapp.data.entity.Profile;
+import com.gmail.ioanna.myandroidapp.data.entity.RegisterData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -56,5 +58,12 @@ public class RestService {
 
     public Observable<Void> saveProfile(Profile profile) {
         return restApi.saveProfile(profile);
+    }
+
+    public Observable<AccessTokenData> register(RegisterData registerData) {
+        //заменить на реальный вызов
+        AccessTokenData accessTokenData = new AccessTokenData();
+        accessTokenData.setAccessToken("nzlnfkznfmklzjf");
+        return Observable.just(new AccessTokenData());
     }
 }

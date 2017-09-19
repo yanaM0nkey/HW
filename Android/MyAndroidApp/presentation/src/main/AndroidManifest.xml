@@ -45,6 +45,7 @@
         <activity android:name=".dz11.Dz11_1Activity"/>
         <activity android:name=".dz11.Dz11_2Activity"/>
         <activity android:name=".classwork18.Classwork18Activity"/>
+        <activity android:name=".classwork21.RegisterActivity"/>
 
         <!-- <receiver android:name=".classwork5.MyBroadcastReceiver">
             <intent-filter>

@@ -9,6 +9,16 @@ public class User {
     private int age;
     private Country country;
 
+    public User() {
+    }
+
+    public User(int id, String name, int age, Country country) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.country = country;
+    }
+
     public int getId() {
         return id;
     }

@@ -15,7 +15,9 @@ import android.view.View;
 import android.widget.Button;
 
 
+import com.gmail.ioanna.myandroidapp.BuildConfig;
 import com.gmail.ioanna.myandroidapp.R;
+import com.gmail.ioanna.myandroidapp.dz3.Dz3Activity;
 
 public class Classwork18Activity extends AppCompatActivity {
 
@@ -37,6 +39,8 @@ public class Classwork18Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         toolbar.setNavigationIcon(R.drawable.owl);
+
+        //BuildConfig.API_REST
 
 
        // view = findViewById(R.id.classWork18View);
@@ -65,12 +69,14 @@ public class Classwork18Activity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.classwork18_menu, menu );
+        getMenuInflater().inflate(R.menu.classwork18_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(this, Dz3Activity.class);
+        startActivity(intent);
         return super.onOptionsItemSelected(item);
     }
 }

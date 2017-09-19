@@ -1,6 +1,8 @@
 package com.gmail.ioanna.myandroidapp.di;
 
 
+import android.content.Context;
+
 import com.gmail.ioanna.myandroidapp.classwork17.Gson;
 import com.gmail.ioanna.myandroidapp.classwork17.OkHttp;
 import com.gmail.ioanna.myandroidapp.classwork17.Rest;
@@ -14,6 +16,17 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
+
+    private Context context;
+
+    public AppModule(Context context) {
+        this.context = context;
+    }
+
+    @Provides
+    public Context provideContext(){
+        return context;
+    }
 
     @Provides
     public UseCase1 provideUseCase1(Rest rest, SharedPrefs sharedPrefs){

@@ -11,9 +11,9 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolBar"
-        android:layout_width="446dp"
-        android:layout_height="80dp"
-        android:layout_marginRight="-2dp"
+        android:layout_width="443dp"
+        android:layout_height="67dp"
+        android:layout_marginRight="-1dp"
         app:layout_constraintRight_toRightOf="parent"
         android:background="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"

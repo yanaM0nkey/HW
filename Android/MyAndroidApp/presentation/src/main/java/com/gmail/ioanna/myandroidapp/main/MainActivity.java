@@ -14,6 +14,7 @@ import com.gmail.ioanna.myandroidapp.classwork14.Classwork14Activity;
 import com.gmail.ioanna.myandroidapp.classwork16.Classwork16Activity;
 import com.gmail.ioanna.myandroidapp.classwork18.Classwork18Activity;
 import com.gmail.ioanna.myandroidapp.classwork2.Classwork2Activity;
+import com.gmail.ioanna.myandroidapp.classwork21.RegisterActivity;
 import com.gmail.ioanna.myandroidapp.classwork3.Classwork3Activity;
 import com.gmail.ioanna.myandroidapp.classwork4.Classwork4Activity;
 import com.gmail.ioanna.myandroidapp.classwork5.Classwork5Activity;
@@ -144,11 +145,12 @@ public class MainActivity extends Activity {
             }
         });
 
+        //заменена 9ая кнопка
         Button dz9Button = (Button) findViewById(R.id.dz9Button);
         dz9Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dz9Activity.show(MainActivity.this);
+                RegisterActivity.show(MainActivity.this);
             }
         });
 
