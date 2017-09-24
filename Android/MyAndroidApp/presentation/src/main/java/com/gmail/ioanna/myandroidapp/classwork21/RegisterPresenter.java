@@ -14,13 +14,15 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 
 public class RegisterPresenter implements RegisterBasePresenter{
-    @Inject
+
     private RegisterView registerView;
 
     @Inject
     public AuthService authService;
+
     private Disposable authDisposible;
 
+    @Inject
     public RegisterUseCase useCase;
 
     public RegisterPresenter(RegisterView registerView) {

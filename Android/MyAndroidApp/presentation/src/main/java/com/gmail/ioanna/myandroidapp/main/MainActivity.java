@@ -15,6 +15,7 @@ import com.gmail.ioanna.myandroidapp.classwork16.Classwork16Activity;
 import com.gmail.ioanna.myandroidapp.classwork18.Classwork18Activity;
 import com.gmail.ioanna.myandroidapp.classwork2.Classwork2Activity;
 import com.gmail.ioanna.myandroidapp.classwork21.RegisterActivity;
+import com.gmail.ioanna.myandroidapp.classwork22.MapsActivity;
 import com.gmail.ioanna.myandroidapp.classwork3.Classwork3Activity;
 import com.gmail.ioanna.myandroidapp.classwork4.Classwork4Activity;
 import com.gmail.ioanna.myandroidapp.classwork5.Classwork5Activity;
@@ -25,6 +26,7 @@ import com.gmail.ioanna.myandroidapp.classwork9.Classwork9Activity;
 import com.gmail.ioanna.myandroidapp.dz1.Dz1Activity;
 import com.gmail.ioanna.myandroidapp.dz10.Dz10Activity;
 import com.gmail.ioanna.myandroidapp.dz11.Dz11_1Activity;
+import com.gmail.ioanna.myandroidapp.dz14.Dz14Activity;
 import com.gmail.ioanna.myandroidapp.dz2.Dz2Activity;
 import com.gmail.ioanna.myandroidapp.dz3.Dz3Activity;
 import com.gmail.ioanna.myandroidapp.dz4.Dz4Activity;
@@ -145,12 +147,12 @@ public class MainActivity extends Activity {
             }
         });
 
-        //заменена 9ая кнопка
+
         Button dz9Button = (Button) findViewById(R.id.dz9Button);
         dz9Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RegisterActivity.show(MainActivity.this);
+                Dz9Activity.show(MainActivity.this);
             }
         });
 
@@ -162,11 +164,20 @@ public class MainActivity extends Activity {
             }
         });
 
+
         Button dz11Button = (Button) findViewById(R.id.dz11Button);
         dz11Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Dz11_1Activity.show(MainActivity.this);
+            }
+        });
+
+        Button dz14Button = (Button) findViewById(R.id.dz14Button);
+        dz14Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dz14Activity.show(MainActivity.this);
             }
         });
 
@@ -282,6 +293,22 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Classwork18Activity.show(MainActivity.this);
+            }
+        });
+
+        Button classwork21Button = (Button) findViewById(R.id.classWork21Button);
+        classwork21Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RegisterActivity.show(MainActivity.this);
+            }
+        });
+
+        Button classwork22Button = (Button) findViewById(R.id.classWork22Button);
+        classwork22Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MapsActivity.show(MainActivity.this);
             }
         });
 

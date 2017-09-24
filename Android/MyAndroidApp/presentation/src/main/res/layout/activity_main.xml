@@ -10,7 +10,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -148,10 +150,10 @@
             <Button
                 style="@style/ChangeButton"
                 android:background="@drawable/main_button"
-                android:id="@+id/dz13Button"
+                android:id="@+id/dz14Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/main_dz13"
+                android:text="@string/main_dz14"
                 android:layout_below="@+id/classWork13Button"
                 android:layout_alignStart="@+id/dz11Button"
                 android:layout_marginEnd="@dimen/marginRight"
@@ -161,12 +163,12 @@
             <Button
                 style="@style/ChangeButton"
                 android:background="@drawable/main_button"
-                android:id="@+id/dz14Button"
+                android:id="@+id/dz16Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/main_dz14"
+                android:text="@string/main_dz16"
                 android:layout_below="@+id/classWork14Button"
-                android:layout_alignStart="@+id/dz13Button"
+                android:layout_alignStart="@+id/dz14Button"
                 android:layout_marginEnd="@dimen/marginRight"
                 android:layout_marginLeft="@dimen/margin"
                 android:layout_marginTop="@dimen/margin"/>
@@ -174,12 +176,25 @@
             <Button
                 style="@style/ChangeButton"
                 android:background="@drawable/main_button"
-                android:id="@+id/dz15Button"
+                android:id="@+id/dz17Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/main_dz15"
+                android:text="@string/main_dz17"
                 android:layout_below="@+id/classWork16Button"
-                android:layout_alignStart="@+id/dz14Button"
+                android:layout_alignStart="@+id/dz16Button"
+                android:layout_marginEnd="@dimen/marginRight"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"/>
+
+            <Button
+                style="@style/ChangeButton"
+                android:background="@drawable/main_button"
+                android:id="@+id/dz22Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_dz22"
+                android:layout_below="@+id/classWork18Button"
+                android:layout_alignStart="@+id/dz17Button"
                 android:layout_marginEnd="@dimen/marginRight"
                 android:layout_marginLeft="@dimen/margin"
                 android:layout_marginTop="@dimen/margin"/>
@@ -343,9 +358,9 @@
                 android:text="@string/main_classwork14"
                 android:textAllCaps="false"
                 android:layout_marginLeft="@dimen/margin"
-                android:layout_alignBaseline="@+id/dz13Button"
-                android:layout_alignBottom="@+id/dz13Button"
-                android:layout_toEndOf="@+id/dz13Button"
+                android:layout_alignBaseline="@+id/dz14Button"
+                android:layout_alignBottom="@+id/dz14Button"
+                android:layout_toEndOf="@+id/dz14Button"
                 />
 
             <Button
@@ -357,9 +372,9 @@
                 android:text="@string/main_classwork16"
                 android:textAllCaps="false"
                 android:layout_marginLeft="@dimen/margin"
-                android:layout_alignBaseline="@+id/dz14Button"
-                android:layout_alignBottom="@+id/dz14Button"
-                android:layout_toEndOf="@+id/dz14Button"
+                android:layout_alignBaseline="@+id/dz16Button"
+                android:layout_alignBottom="@+id/dz16Button"
+                android:layout_toEndOf="@+id/dz16Button"
                 />
 
             <Button
@@ -371,12 +386,40 @@
                 android:text="@string/main_classwork18"
                 android:textAllCaps="false"
                 android:layout_marginLeft="@dimen/margin"
-                android:layout_alignBaseline="@+id/dz15Button"
-                android:layout_alignBottom="@+id/dz15Button"
-                android:layout_toEndOf="@+id/dz15Button"
+                android:layout_alignBaseline="@+id/dz17Button"
+                android:layout_alignBottom="@+id/dz17Button"
+                android:layout_toEndOf="@+id/dz17Button"
                 />
 
+            <Button
+                style="@style/ChangeButton"
+                android:background="@drawable/main_button"
+                android:id="@+id/classWork21Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_classwork21"
+                android:textAllCaps="false"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_alignBaseline="@+id/dz22Button"
+                android:layout_alignBottom="@+id/dz22Button"
+                android:layout_toEndOf="@+id/dz22Button"
+                />
 
-            </RelativeLayout>
+            <Button
+                style="@style/ChangeButton"
+                android:background="@drawable/main_button"
+                android:id="@+id/classWork22Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_classwork22"
+                android:textAllCaps="false"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/classWork21Button"
+                android:layout_alignEnd="@+id/classWork14Button" />
+
+
+
+        </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

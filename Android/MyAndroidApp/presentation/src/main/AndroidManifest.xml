@@ -2,8 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gmail.ioanna.myandroidapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".ApplicationClass"
@@ -19,44 +26,63 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".dz1.Dz1Activity"/>
-        <activity android:name=".classwork2.Classwork2Activity"/>
-        <activity android:name=".dz2.Dz2Activity"/>
-        <activity android:name=".classwork3.Classwork3Activity"/>
-        <activity android:name=".classwork4.Classwork4Activity"/>
-        <activity android:name=".dz3.Dz3Activity"/>
+        <activity android:name=".dz1.Dz1Activity" />
+        <activity android:name=".classwork2.Classwork2Activity" />
+        <activity android:name=".dz2.Dz2Activity" />
+        <activity android:name=".classwork3.Classwork3Activity" />
+        <activity android:name=".classwork4.Classwork4Activity" />
+        <activity android:name=".dz3.Dz3Activity" />
         <activity android:name=".dz4.Dz4Activity" />
-        <activity android:name=".classwork5.Classwork5Activity"/>
-        <activity android:name=".classwork6.Classwork6Activity"/>
-        <activity android:name=".dz5.Dz5Activity"/>
-        <activity android:name=".dz6.Dz6Activity"/>
-        <activity android:name=".classwork7.Classwork7Activity"/>
-        <activity android:name=".classwork8.Classwork8Activity"/>
-        <activity android:name=".dz7.Dz7Activity"/>
-        <activity android:name=".classwork9.Classwork9Activity"/>
-        <activity android:name=".classwork12.Classwork12Activity"/>
-        <activity android:name=".dz9.Dz9Activity"/>
-        <activity android:name=".classwork13.Classwork13Activity"/>
-        <activity android:name=".dz10.Dz10Activity"/>
-        <activity android:name=".classwork14.Classwork14Activity"/>
-        <activity android:name=".classwork16.Classwork16Activity"/>
-        <activity android:name=".dz11.Dz11_1Activity"/>
-        <activity android:name=".dz11.Dz11_2Activity"/>
-        <activity android:name=".classwork18.Classwork18Activity"/>
+        <activity android:name=".classwork5.Classwork5Activity" />
+        <activity android:name=".classwork6.Classwork6Activity" />
+        <activity android:name=".dz5.Dz5Activity" />
+        <activity android:name=".dz6.Dz6Activity" />
+        <activity android:name=".classwork7.Classwork7Activity" />
+        <activity android:name=".classwork8.Classwork8Activity" />
+        <activity android:name=".dz7.Dz7Activity" />
+        <activity android:name=".classwork9.Classwork9Activity" />
+        <activity android:name=".classwork12.Classwork12Activity" />
+        <activity android:name=".dz9.Dz9Activity" />
+        <activity android:name=".classwork13.Classwork13Activity" />
+        <activity android:name=".dz10.Dz10Activity" />
+        <activity android:name=".classwork14.Classwork14Activity" />
+        <activity android:name=".classwork16.Classwork16Activity" />
+        <activity android:name=".dz11.Dz11_1Activity" />
+        <activity android:name=".dz11.Dz11_2Activity" />
+        <activity android:name=".dz11.Dz11_3Activity" />
+        <activity android:name=".classwork18.Classwork18Activity" />
         <activity android:name=".classwork21.RegisterActivity"/>
+        <activity android:name=".dz14.Dz14Activity"/>
 
-        <!-- <receiver android:name=".classwork5.MyBroadcastReceiver">
+
+        <!--
+        <receiver android:name=".classwork5.MyBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGED"/>
             </intent-filter>
-        </receiver> -->
+        </receiver>
+        -->
 
-        <service android:name=".classwork5.MyService"/>
-        <service android:name=".classwork5.MyIntentService"/>
-        <service android:name=".dz5.Dz5Service"/>
+        <service android:name=".classwork5.MyService" />
+        <service android:name=".classwork5.MyIntentService" />
+        <service android:name=".dz5.Dz5Service" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".classwork22.MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>

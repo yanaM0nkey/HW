@@ -62,7 +62,7 @@ public class Dz11RestService {
         return restApi.getProfileById(id);
     }
 
-    /*public Observable<Void> saveProfile(Profile profile) {
-        return restApi.saveProfile(profile);
-    }*/
+    public Observable<Void> updateProfile(Dz11Profile profile) {
+        return restApi.updateProfile(profile, profile.getId());
+    }
 }

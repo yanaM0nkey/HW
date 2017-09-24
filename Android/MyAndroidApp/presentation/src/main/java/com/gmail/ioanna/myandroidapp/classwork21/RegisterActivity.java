@@ -1,6 +1,7 @@
 package com.gmail.ioanna.myandroidapp.classwork21;
 
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -14,10 +15,15 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.gmail.ioanna.myandroidapp.R;
+import com.gmail.ioanna.myandroidapp.classwork13.Classwork13Activity;
 import com.gmail.ioanna.myandroidapp.classwork9.Classwork9Activity;
 import com.gmail.ioanna.myandroidapp.databinding.ActivityDz111Binding;
 import com.gmail.ioanna.myandroidapp.dz11.Dz11_1Activity;
 import com.gmail.ioanna.myandroidapp.dz11.Dz11_1ViewModel;
+import com.gmail.ioanna.myandroidapp.dz3.Dz3Activity;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import io.reactivex.functions.Consumer;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterView {
 
@@ -45,8 +51,31 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
             @Override
             public void onClick(View view) {
                 presenter.onRegisterButtonClick("username", "password");
+
+//надо еще прописывать в манифесте и рабтатет с 5.0
+                /*RxPermissions rxPermissions = new RxPermissions(RegisterActivity.this);
+
+                rxPermissions
+                        .request(Manifest.permission.ACCESS_FINE_LOCATION)
+                        .subscribe(new Consumer<Boolean>() {
+                            @Override
+                            public void accept(Boolean aBoolean) throws Exception {
+                                if(aBoolean){
+                                    Toast.makeText(RegisterActivity.this, "TRUE",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    Toast.makeText(RegisterActivity.this, "FALSE",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });*/
             }
         });
+
+
+
     }
 
     @Override
@@ -82,7 +111,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     @Override
     public void goToMainActivity() {
         //для примера переход на какую-нибудь activity
-        Classwork9Activity.show(this);
+        Classwork13Activity.show(this);
 
     }
 }

@@ -7,13 +7,13 @@
 
         <import type="java.lang.String" />
 
-        <import type="com.gmail.ioanna.myandroidapp.dz11.Dz11_2ViewModel.STATE" />
+        <import type="com.gmail.ioanna.myandroidapp.dz11.Dz11_3ViewModel.STATE" />
 
         <import type="android.view.View" />
 
         <variable
             name="viewModel"
-            type="com.gmail.ioanna.myandroidapp.dz11.Dz11_2ViewModel" />
+            type="com.gmail.ioanna.myandroidapp.dz11.Dz11_3ViewModel" />
 
     </data>
 
@@ -47,7 +47,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <TextView
+            <EditText
                 android:id="@+id/editText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent" />
 
-            <TextView
+            <EditText
                 android:id="@+id/spinner2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent" />
 
-            <TextView
+            <EditText
                 android:id="@+id/spinner3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent" />
 
-            <TextView
+            <EditText
                 android:id="@+id/editText2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -157,6 +157,7 @@
                 android:layout_marginStart="8dp"
                 android:text="@={viewModel.age}"
                 android:textSize="22sp"
+                android:inputType="number"
                 app:layout_constraintBottom_toTopOf="@+id/button"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -168,10 +169,10 @@
                 style="@style/ChangeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="163dp"
+                android:layout_marginBottom="155dp"
                 android:background="@drawable/main_button"
                 android:onClick="@{() -> viewModel.onButtonClick()}"
-                android:text="Edit"
+                android:text="Update"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintLeft_toLeftOf="parent"

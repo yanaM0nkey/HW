@@ -4,19 +4,21 @@ package com.gmail.ioanna.myandroidapp.dz11;
 import android.app.Activity;
 import android.content.Intent;
 import android.databinding.ObservableField;
-import android.databinding.ObservableInt;
 import android.util.Log;
 
 import com.gmail.ioanna.myandroidapp.base.BaseViewModel;
 import com.gmail.ioanna.myandroidapp.domain.entity.Dz11ProfileId;
 import com.gmail.ioanna.myandroidapp.domain.entity.Dz11ProfileModel;
 import com.gmail.ioanna.myandroidapp.domain.interaction.Dz11GetProfileUseCaseById;
+import com.gmail.ioanna.myandroidapp.domain.interaction.Dz11UpdateProfileUseCase;
 
+import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
 
-public class Dz11_2ViewModel implements BaseViewModel {
+public class Dz11_3ViewModel implements BaseViewModel {
 
     public enum STATE {PROGRESS, DATA}
+
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
     public ObservableField<String> name = new ObservableField<>();
     public ObservableField<String> surname = new ObservableField<>();
@@ -27,10 +29,11 @@ public class Dz11_2ViewModel implements BaseViewModel {
     private String id;
 
     private Dz11GetProfileUseCaseById getProfileUseCase = new Dz11GetProfileUseCaseById();
+    private Dz11UpdateProfileUseCase updateProfileUseCase = new Dz11UpdateProfileUseCase();
     private Dz11ProfileId profileId;
 
 
-    public Dz11_2ViewModel(Activity activity, String id) {
+    public Dz11_3ViewModel(Activity activity, String id) {
         this.id = id;
         this.activity = activity;
         profileId = new Dz11ProfileId();
@@ -76,12 +79,43 @@ public class Dz11_2ViewModel implements BaseViewModel {
     @Override
     public void pause() {
         getProfileUseCase.dispose();
+        //updateProfileUseCase.dispose();
     }
 
     public void onButtonClick(){
-        Intent intent = new Intent(activity, Dz11_3Activity.class);
-        intent.putExtra("id", id);
+        Log.e("Click", "ok");
+
+        Dz11ProfileModel profileModel = new Dz11ProfileModel();
+        profileModel.setId(id);
+        profileModel.setName(name.get());
+        profileModel.setSurname(surname.get());
+        profileModel.setCountry(country.get());
+        profileModel.setAge(Integer.valueOf(age.get()));
+
+        updateProfileUseCase.execute(profileModel, new DisposableObserver<Void>() {
+            @Override
+            public void onNext(@NonNull Void aVoid) {
+                Log.e("update", "ok");
+
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+
+            }
+        });
+
+        Intent intent = new Intent(activity, Dz11_1Activity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
 
+
     }
+
 }
